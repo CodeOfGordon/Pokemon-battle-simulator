@@ -1,11 +1,15 @@
 from tkinter import *
 from tkinter.font import Font
+from Move_class import *
+from Pokemon_class import *
+from Fight_class import *
+from Player_class import *
 import random
 
 MENU_WIDTH = 1024
 MENU_HEIGHT = 576
 
-class Window:
+class GamePokemon:
 
     def __init__(self):
         self.root = Tk()
