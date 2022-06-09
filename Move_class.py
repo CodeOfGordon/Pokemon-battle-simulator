@@ -8,9 +8,17 @@ class Move:
         self.status = status
         self.type = type
         self.damage = damage
+        self.attributes = {
+        'name' : self.name,
+        'type' : self.type,
+        'damage' : self.damage,
+        'status' : self.status}
 
     def __repr__(self):
         return f"{self.name},{self.type},{self.damage},{self.status}"
+
+    def __getitem__(self,item):
+        return self.attributes[item]
 
     def get_name(self):
         return self.name
