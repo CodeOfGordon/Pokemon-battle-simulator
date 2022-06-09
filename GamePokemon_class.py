@@ -11,7 +11,9 @@ MENU_WIDTH = 1024
 MENU_HEIGHT = 576
 MENU_CENTERX = MENU_WIDTH / 2
 MENU_CENTERY = MENU_HEIGHT / 2
-BOTTOM_OPTIONS = MENU_HEIGHT / 4
+BOTTOM_OPTIONS = (MENU_HEIGHT / 4) * 2.5
+TOP_BOTTOM_FRAME = (MENU_HEIGHT / 4) * 0.5
+SIDE_FRAME = (MENU_WIDTH / 4) * 0.1
 
 
 class GamePokemon:
@@ -65,20 +67,26 @@ class GamePokemon:
         self.pokemon = Label(self.root)
         self.pokemon.place(x=MENU_CENTERX/2,y=BOTTOM_OPTIONS)
 
-        self.fight_button = Button(self.root, text="Fight", font=self.font, command=self.test)
-        self.fight_button.place(x=MENU_CENTERX,y=BOTTOM_OPTIONS*0.9,width=MENU_CENTERX/4,height=BOTTOM_OPTIONS/4)
+        options = Frame(self.root, x=MENU_CENTERX,y=MENU_CENTERY,width=MENU_CENTERX-SIDE_FRAME, height=MENU_CENTERY-TOP_BOTTOM_FRAME)
 
-        self.bag_button = Button(self.root, text="Bag", font=self.font, command=self.test)
-        self.bag_button.place(x=MENU_CENTERX*1.8,y=BOTTOM_OPTIONS*0.9,width=MENU_CENTERX/4,height=BOTTOM_OPTIONS/4)
+        # top left
+        self.fight_button = Button(options, text="Fight", font=self.font, justify=LEFT,command=self.test)
+        self.fight_button.place(x=MENU_CENTERX,y=BOTTOM_OPTIONS,width=MENU_CENTERX*0.45,height=BOTTOM_OPTIONS*0.25)
 
-        self.switch_button = Button(self.root, text="Switch", font=self.font, command=self.test)
-        self.switch_button.place(x=MENU_CENTERX,y=BOTTOM_OPTIONS-(BOTTOM_OPTIONS/4),width=MENU_CENTERX/4,height=BOTTOM_OPTIONS/4)
+        # top right
+        self.bag_button = Button(self.root, text="Bag", font=self.font, justify=LEFT,command=self.test)
+        self.bag_button.place(x=(MENU_CENTERX)+(MENU_CENTERX*0.45)-SIDE_FRAME,y=BOTTOM_OPTIONS,width=MENU_CENTERX*0.45,height=BOTTOM_OPTIONS/5)
 
-        self.run_button = Button(self.root, text="Run", font=self.font, command=self.test)
-        self.run_button.place(x=MENU_CENTERX*1.8,y=BOTTOM_OPTIONS-(BOTTOM_OPTIONS/4),width=MENU_CENTERX/4,height=BOTTOM_OPTIONS/4)
+        # bottom left
+        self.switch_button = Button(self.root, text="Switch", font=self.font, justify=LEFT,command=self.test)
+        self.switch_button.place(x=MENU_CENTERX,y=(BOTTOM_OPTIONS)+(BOTTOM_OPTIONS/5)+TOP_BOTTOM_FRAME,width=MENU_CENTERX*0.45,height=BOTTOM_OPTIONS/5)
+
+        # bottom right
+        self.run_button = Button(self.root, text="Run", font=self.font, justify=LEFT,command=self.test)
+        self.run_button.place(x=(MENU_CENTERX)+(MENU_CENTERX*0.45)-SIDE_FRAME,y=(BOTTOM_OPTIONS)+(BOTTOM_OPTIONS/5)+TOP_BOTTOM_FRAME,width=MENU_CENTERX*0.45,height=BOTTOM_OPTIONS/5)
 
         self.pokemon_name = Label(self.root, text="placeholder",font=self.font) # Insert pokemon name variable
-        self.pokemon_name.place(x=MENU_CENTERX*1.2,y=BOTTOM_OPTIONS*1.5,width=MENU_CENTERX/4,height=BOTTOM_OPTIONS/4)
+        self.pokemon_name.place(x=MENU_CENTERX,y=BOTTOM_OPTIONS*1.5,width=MENU_CENTERX/4,height=BOTTOM_OPTIONS/4)
 
 
         '''self.pokemon_hp = Frame(self.root)
