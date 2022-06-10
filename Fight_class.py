@@ -18,6 +18,12 @@ class Fight:
         return self.pokemon
 
 def get_multiplier(filename,attacker_type,defender_type):
+    ''' (str,str,str) -> int
+    Determines and returns the multiplier used in damage calculation based on a pokemons attack stat and defence stat
+    get_multiplier()
+    
+    
+    '''
     damage_multiplier = 0
     attacker_type = attacker_type.capitalize()
     defender_type = defender_type.capitalize()
