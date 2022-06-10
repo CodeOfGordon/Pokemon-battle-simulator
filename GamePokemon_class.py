@@ -11,9 +11,7 @@ MENU_WIDTH = 1024
 MENU_HEIGHT = 576
 MENU_CENTERX = MENU_WIDTH / 2
 MENU_CENTERY = MENU_HEIGHT / 2
-BOTTOM_OPTIONS = (MENU_HEIGHT / 4) * 2.5
-TOP_BOTTOM_FRAME = (MENU_HEIGHT / 4) * 0.5
-SIDE_FRAME = (MENU_WIDTH / 4) * 0.1
+TOP_BOTTOM_FRAME = SIDE_FRAME = 10
 
 
 class GamePokemon:
@@ -57,36 +55,56 @@ class GamePokemon:
         COLORS = ["red", "green", "blue", "yellow"]
         example = Label(self.root, text="test", background=random.choice(COLORS))
         example.place(x=0, y=0, width=50, height=50)
-        
 
+    def mouse_hover_change(self, button, oldtext):
+        '''Change the text of the button when the mouse is over it.'''
+        button.bind("<Enter>", lambda e: button.config(text="➤ " + oldtext))
+        button.bind("<Leave>", lambda e: button.config(text=oldtext))
+        
     
     def setup(self): # Change to use place() instead of grid(). Also origin is top left corner
         '''Create all of the widgets for the menu.'''
         self.font = Font(family="Helvetica", size=20)
 
-        self.pokemon = Label(self.root)
-        self.pokemon.place(x=MENU_CENTERX/2,y=BOTTOM_OPTIONS)
+        #self.pokemon = Label(self.root)
+        #self.pokemon.place(x=MENU_CENTERX/2,y=MENU_CENTERY)
 
-        options = Frame(self.root, x=MENU_CENTERX,y=MENU_CENTERY,width=MENU_CENTERX-SIDE_FRAME, height=MENU_CENTERY-TOP_BOTTOM_FRAME)
+        OPTIONS_FRAME_WIDTH = MENU_CENTERX-(2*SIDE_FRAME)
+        OPTIONS_FRAME_HEIGHT = MENU_CENTERY-(2*TOP_BOTTOM_FRAME)
+
+        self.outer_options_frame = Frame(self.root,background="purple")
+        self.outer_options_frame.place(x=MENU_CENTERX,y=MENU_CENTERY,width=MENU_CENTERX,height=MENU_CENTERY)
+
+        self.options_frame = Frame(self.root,background="white")
+        self.options_frame.place(x=MENU_CENTERX+SIDE_FRAME,y=MENU_CENTERY+TOP_BOTTOM_FRAME,width=OPTIONS_FRAME_WIDTH, height=OPTIONS_FRAME_HEIGHT)
 
         # top left
-        self.fight_button = Button(options, text="Fight", font=self.font, justify=LEFT,command=self.test)
-        self.fight_button.place(x=MENU_CENTERX,y=BOTTOM_OPTIONS,width=MENU_CENTERX*0.45,height=BOTTOM_OPTIONS*0.25)
+        self.fight_button = Button(self.options_frame, text="Fight", font=self.font, justify=LEFT,command=self.test)
+        self.fight_button.place(x=0,y=0,width=OPTIONS_FRAME_WIDTH/2,height=OPTIONS_FRAME_HEIGHT/2)
+        self.fight_button.config(borderwidth=0)
+        self.mouse_hover_change(self.fight_button, "Fight")
+        
 
         # top right
-        self.bag_button = Button(self.root, text="Bag", font=self.font, justify=LEFT,command=self.test)
-        self.bag_button.place(x=(MENU_CENTERX)+(MENU_CENTERX*0.45)-SIDE_FRAME,y=BOTTOM_OPTIONS,width=MENU_CENTERX*0.45,height=BOTTOM_OPTIONS/5)
+        self.bag_button = Button(self.options_frame, text="Bag", font=self.font, justify=LEFT,command=self.test)
+        self.bag_button.place(x=OPTIONS_FRAME_WIDTH/2,y=0,width=OPTIONS_FRAME_WIDTH/2,height=OPTIONS_FRAME_HEIGHT/2)
+        self.bag_button.config(borderwidth=0)
+        self.mouse_hover_change(self.bag_button, "Bag")
 
         # bottom left
-        self.switch_button = Button(self.root, text="Switch", font=self.font, justify=LEFT,command=self.test)
-        self.switch_button.place(x=MENU_CENTERX,y=(BOTTOM_OPTIONS)+(BOTTOM_OPTIONS/5)+TOP_BOTTOM_FRAME,width=MENU_CENTERX*0.45,height=BOTTOM_OPTIONS/5)
+        self.switch_button = Button(self.options_frame, text="Switch", font=self.font, justify=LEFT,command=self.test)
+        self.switch_button.place(x=0,y=OPTIONS_FRAME_HEIGHT/2,width=OPTIONS_FRAME_WIDTH/2,height=OPTIONS_FRAME_HEIGHT/2)
+        self.switch_button.config(borderwidth=0)
+        self.mouse_hover_change(self.switch_button, "Switch")
 
         # bottom right
-        self.run_button = Button(self.root, text="Run", font=self.font, justify=LEFT,command=self.test)
-        self.run_button.place(x=(MENU_CENTERX)+(MENU_CENTERX*0.45)-SIDE_FRAME,y=(BOTTOM_OPTIONS)+(BOTTOM_OPTIONS/5)+TOP_BOTTOM_FRAME,width=MENU_CENTERX*0.45,height=BOTTOM_OPTIONS/5)
+        self.run_button = Button(self.options_frame, text="Run", font=self.font, justify=LEFT,command=self.test)
+        self.run_button.place(x=OPTIONS_FRAME_WIDTH/2,y=OPTIONS_FRAME_HEIGHT/2,width=OPTIONS_FRAME_WIDTH/2,height=OPTIONS_FRAME_HEIGHT/2)
+        self.run_button.config(borderwidth=0)
+        self.mouse_hover_change(self.run_button, "Run")
 
-        self.pokemon_name = Label(self.root, text="placeholder",font=self.font) # Insert pokemon name variable
-        self.pokemon_name.place(x=MENU_CENTERX,y=BOTTOM_OPTIONS*1.5,width=MENU_CENTERX/4,height=BOTTOM_OPTIONS/4)
+        #self.pokemon_name = Label(self.root, text="placeholder",font=self.font) # Insert pokemon name variable
+        #self.pokemon_name.place(x=MENU_CENTERX,y=BOTTOM_OPTIONS*1.5,width=MENU_CENTERX/4,height=BOTTOM_OPTIONS/4)
 
 
         '''self.pokemon_hp = Frame(self.root)

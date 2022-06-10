@@ -71,4 +71,4 @@ def make_pokemon(filename):
         print("File not found.")
     return pokedex
 
-print(make_pokemon("pokemon.csv"))
+# print(make_pokemon("pokemon.csv"))
