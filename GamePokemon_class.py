@@ -61,6 +61,12 @@ class GamePokemon:
         '''Change the text of the button when the mouse is over it.'''
         button.bind("<Enter>", lambda e: button.config(text="➤ " + oldtext))
         button.bind("<Leave>", lambda e: button.config(text=oldtext))
+    
+    def moves_GUI(self,event):
+        '''Create the GUI for the moves.'''
+        self.moves_frame = Frame(self.root, bg="black")
+        self.moves_frame.place(x=0, y=0, width=MENU_CENTERX, height=MENU_CENTERY)
+
         
     
     def setup(self): # Change to use place() instead of grid(). Also origin is top left corner
@@ -70,7 +76,7 @@ class GamePokemon:
         OPTIONS_INNER_FRAME_HEIGHT = (BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75)
         BOTTOM_BARY_TOP = MENU_HEIGHT-BOTTOM_BARY
 
-
+        
         # Bottom bar
         BOTTOM_OUTTER_FRAME_COLOR = "purple"
         self.outer_options_frame = Frame(self.root,background=BOTTOM_OUTTER_FRAME_COLOR)
@@ -114,9 +120,18 @@ class GamePokemon:
         self.mouse_hover_change(self.run_button, "Run")
 
 
+        # ---- If player chooses FIGHT ----
+        self.fight_button.bind("<Button-1>", self.moves_GUI)
 
 
         self.pokemon_name_box = Label(self.root, text="PLACEHOLDER",font=self.font) # self.get_pokemon_name_pl
+
+
+
+
+
+
+
 
 
 
