@@ -33,6 +33,9 @@ class Move:
         return self.damage
 
 def create_moves(filename):
+    ''' (str) -> dict
+    Creates and returns a dictionary of every move possible
+    '''
     moves = {}
     count = 0
     try:

@@ -49,6 +49,9 @@ class Pokemon:
         return self.moves
 
 def make_moves(type,filename):
+    ''' (str,str) -> list
+    Determines and returns 4 random moves for a pokemon depending on its type
+    '''
     pokemon_moves = []
     try:
         all_moves = create_moves(filename)
@@ -61,6 +64,9 @@ def make_moves(type,filename):
     return pokemon_moves
 
 def make_pokemon(filename):
+    ''' (str) -> dict
+    Creates and returns a dictionary containing every pokemon and their name, type, hp, attack stat, defense stat, level, and moves
+    '''
     pokedex = {}
     try:
         with open(filename) as f:
@@ -70,5 +76,3 @@ def make_pokemon(filename):
     except FileNotFoundError:
         print("File not found.")
     return pokedex
-
-# print(make_pokemon("pokemon.csv"))

@@ -20,9 +20,8 @@ class Fight:
 def get_multiplier(filename,attacker_type,defender_type):
     ''' (str,str,str) -> int
     Determines and returns the multiplier used in damage calculation based on a pokemons attack stat and defence stat
-    get_multiplier()
-    
-    
+    >>> get_multiplier("multiplier.csv","normal","normal")
+    1
     '''
     damage_multiplier = 0
     attacker_type = attacker_type.capitalize()
@@ -38,6 +37,11 @@ def get_multiplier(filename,attacker_type,defender_type):
     return damage_multiplier
 
 def determine_damage(multiplier,attacker_level,move_power,attack_stat,defence_stat):
+    ''' (int,int,int,int,int) -> float
+    Determines and returns the damage done by an attacker
+    >>> determine_damage(1,50,30,25,25)
+    idk
+    '''
     first_bracket = ((2*attacker_level)/5)+2
     second_bracket = ((attack_stat/defence_stat)/50)+2
     damage = ((first_bracket*move_power*second_bracket)*multiplier)*5
