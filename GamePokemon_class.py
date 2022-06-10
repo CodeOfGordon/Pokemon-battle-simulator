@@ -78,19 +78,19 @@ class GamePokemon:
 
         
         # Bottom bar
-        BOTTOM_OUTTER_FRAME_COLOR = "purple"
+        BOTTOM_OUTTER_FRAME_COLOR = "#d64739"
         self.outer_options_frame = Frame(self.root,background=BOTTOM_OUTTER_FRAME_COLOR)
         self.outer_options_frame.place(x=0,y=BOTTOM_BARY_TOP,width=MENU_WIDTH,height=BOTTOM_BARY)
         
-        self.right_options_frame = Frame(self.root,background="black")
+        self.right_options_frame = Frame(self.root,background="#f8f8f8")
         self.right_options_frame.place(x=MENU_CENTERX+SIDE_FRAME,y=BOTTOM_BARY_TOP+TOP_BOTTOM_FRAME,width=OPTIONS_INNER_FRAME_WIDTH, height=OPTIONS_INNER_FRAME_HEIGHT)
     
-        self.left_options_frame = Frame(self.root,background="#8436c9")
+        self.left_options_frame = Frame(self.root)
         self.left_options_frame.place(x=SIDE_FRAME,y=BOTTOM_BARY_TOP+TOP_BOTTOM_FRAME,width=OPTIONS_INNER_FRAME_WIDTH, height=OPTIONS_INNER_FRAME_HEIGHT)
 
 
         # The "What Will You Do" text
-        self.options_ask_start = Label(self.left_options_frame, text=(f"What will\nPLACEHOLDER do?"), fg="white",font=self.font) # self.get_pokemon_name_pl
+        self.options_ask_start = Label(self.left_options_frame, text=(f"What will\nPLACEHOLDER do?"), bg="#69a1a2",font=self.font) # self.get_pokemon_name_pl
         self.options_ask_start.place(x=0, y=0, width=OPTIONS_INNER_FRAME_WIDTH, height=OPTIONS_INNER_FRAME_HEIGHT)
 
 
