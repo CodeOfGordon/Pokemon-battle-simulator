@@ -68,7 +68,14 @@ class GamePokemon:
         self.moves_frame.place(x=0+TOP_BOTTOM_FRAME, y=367, width=(MENU_CENTERX*2)-SIDE_FRAME*2, height=BOTTOM_BARY-TOP_BOTTOM_FRAME)
         self.move1 = Button(self.moves_frame, text="move1", font=self.font, justify=LEFT,command=self.test)
         self.move1.place(x=0,y=0,width=(MENU_CENTERX-(2*SIDE_FRAME)),height=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2)
-        
+        self.move2 = Button(self.moves_frame, text="move2", font=self.font, justify=LEFT,command=self.test)
+        self.move2.place(x=0,y=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2,width=(MENU_CENTERX-(2*SIDE_FRAME)),height=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2)
+        self.move3 = Button(self.moves_frame, text="move3", font=self.font, justify=LEFT,command=self.test)
+        self.move3.place(x=MENU_CENTERX-(2*SIDE_FRAME),y=0,width=(MENU_CENTERX-(2*SIDE_FRAME)),height=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2)
+        self.move4 = Button(self.moves_frame, text="move4", font=self.font, justify=LEFT,command=self.test)
+        self.move4.place(x=MENU_CENTERX-(2*SIDE_FRAME),y=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2,width=(MENU_CENTERX-(2*SIDE_FRAME)),height=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2)
+
+
     def setup(self): # Change to use place() instead of grid(). Also origin is top left corner
         '''Create all of the widgets for the menu.'''
         self.font = Font(family="Helvetica", size=20, weight="bold")
