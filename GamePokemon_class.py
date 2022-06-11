@@ -13,7 +13,7 @@ MENU_CENTERX = MENU_WIDTH / 2
 MENU_CENTERY = MENU_HEIGHT / 2
 BOTTOM_BARY = MENU_CENTERY * 0.75
 TOP_BOTTOM_FRAME = SIDE_FRAME = BOTTOM_BARY * 0.05
-
+BOTTOM_BARY_TOP = MENU_HEIGHT-BOTTOM_BARY
 
 class GamePokemon:
 
@@ -64,16 +64,26 @@ class GamePokemon:
     
     def moves_GUI(self,event):
         '''Create the GUI for the moves.'''
+        OPTIONS_MOVES_FRAME_WIDTH = MENU_WIDTH-(2*SIDE_FRAME)
+        OPTIONS_MOVES_FRAME_HEIGHT = (BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75)
+
         self.moves_frame = Frame(self.root, bg="white")
-        self.moves_frame.place(x=0+TOP_BOTTOM_FRAME, y=367, width=(MENU_CENTERX*2)-SIDE_FRAME*2, height=BOTTOM_BARY-TOP_BOTTOM_FRAME)
+        self.moves_frame.place(x=SIDE_FRAME, y=BOTTOM_BARY_TOP+TOP_BOTTOM_FRAME, width=OPTIONS_MOVES_FRAME_WIDTH, height=OPTIONS_MOVES_FRAME_HEIGHT)
+
         self.move1 = Button(self.moves_frame, text="move1", font=self.font, justify=LEFT,command=self.test)
-        self.move1.place(x=0,y=0,width=(MENU_CENTERX-(2*SIDE_FRAME)),height=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2)
+        self.move1.place(x=0,y=0,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
+
         self.move2 = Button(self.moves_frame, text="move2", font=self.font, justify=LEFT,command=self.test)
-        self.move2.place(x=0,y=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2,width=(MENU_CENTERX-(2*SIDE_FRAME)),height=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2)
+        self.move2.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=0,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2) 
+
         self.move3 = Button(self.moves_frame, text="move3", font=self.font, justify=LEFT,command=self.test)
-        self.move3.place(x=MENU_CENTERX-(2*SIDE_FRAME),y=0,width=(MENU_CENTERX-(2*SIDE_FRAME)),height=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2)
+        self.move3.place(x=0,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
+
         self.move4 = Button(self.moves_frame, text="move4", font=self.font, justify=LEFT,command=self.test)
-        self.move4.place(x=MENU_CENTERX-(2*SIDE_FRAME),y=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2,width=(MENU_CENTERX-(2*SIDE_FRAME)),height=((BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75))/2)
+        self.move4.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
+
+        self.move2.bind("<Escape>", lambda e: self.moves_frame.destroy)
+
 
 
     def setup(self): # Change to use place() instead of grid(). Also origin is top left corner
@@ -81,9 +91,8 @@ class GamePokemon:
         self.font = Font(family="Helvetica", size=20, weight="bold")
         OPTIONS_INNER_FRAME_WIDTH = MENU_CENTERX-(2*SIDE_FRAME)
         OPTIONS_INNER_FRAME_HEIGHT = (BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75)
-        BOTTOM_BARY_TOP = MENU_HEIGHT-BOTTOM_BARY
 
-        
+
         # Bottom bar
         BOTTOM_OUTTER_FRAME_COLOR = "#d64739"
         self.outer_options_frame = Frame(self.root,background=BOTTOM_OUTTER_FRAME_COLOR)
