@@ -5,6 +5,7 @@ from Pokemon_class import *
 from Fight_class import *
 from Player_class import *
 import random
+from PIL import Image, ImageTk
 
 
 MENU_WIDTH = 1024
@@ -62,6 +63,7 @@ class GamePokemon:
         button.bind("<Enter>", lambda e: button.config(text="➤ " + oldtext))
         button.bind("<Leave>", lambda e: button.config(text=oldtext))
     
+
     def moves_GUI(self,event):
         '''Create the GUI for the moves.'''
         OPTIONS_MOVES_FRAME_WIDTH = MENU_WIDTH-(2*SIDE_FRAME)
@@ -82,12 +84,15 @@ class GamePokemon:
         self.move4 = Button(self.moves_frame, text="move4", font=self.font, justify=LEFT,command=self.test)
         self.move4.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
 
-        self.move2.bind("<Escape>", lambda e: self.moves_frame.destroy)
+        self.move2.bind("<Escape>", lambda e: self.moves_frame.destroy) # Make this button close the frame
 
 
 
     def setup(self): # Change to use place() instead of grid(). Also origin is top left corner
         '''Create all of the widgets for the menu.'''
+        background = Image
+
+
         self.font = Font(family="Helvetica", size=20, weight="bold")
         OPTIONS_INNER_FRAME_WIDTH = MENU_CENTERX-(2*SIDE_FRAME)
         OPTIONS_INNER_FRAME_HEIGHT = (BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75)
