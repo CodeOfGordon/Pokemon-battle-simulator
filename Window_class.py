@@ -64,7 +64,7 @@ class Window:
         button.bind("<Leave>", lambda e: button.config(text=oldtext))
     
 
-    def moves_GUI(self,event):
+    def moves_GUI(self):
         '''Create the GUI for the moves.'''
         OPTIONS_MOVES_FRAME_WIDTH = MENU_WIDTH-(2*SIDE_FRAME)
         OPTIONS_MOVES_FRAME_HEIGHT = (BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75)
@@ -84,15 +84,23 @@ class Window:
         self.move4 = Button(self.moves_frame, text="move4", font=self.font, justify=LEFT,command=self.test)
         self.move4.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
 
-        self.move2.bind("<Escape>", lambda e: self.moves_frame.destroy) # Make this button close the frame
 
 
 
     def setup(self): # Change to use place() instead of grid(). Also origin is top left corner
         '''Create all of the widgets for the menu.'''
+<<<<<<< Updated upstream
         background = Image("Sprites/pokemon_background.png")
         #background = ImageTk(background)
         background.place(x=0,)
+=======
+        self.bckgrnd = Image.open("pokemon_background.png")
+        self.bckgrnd.resize((MENU_WIDTH,BOTTOM_BARY_TOP))
+        self.bckgrnd = ImageTk.PhotoImage(self.bckgrnd)
+        self.background = Label(self.root,image=self.bckgrnd)
+
+        self.background.place(x=0,y=0,width=MENU_WIDTH,height=BOTTOM_BARY_TOP)
+>>>>>>> Stashed changes
 
 
         self.font = Font(family="Helvetica", size=20, weight="bold")
@@ -143,8 +151,6 @@ class Window:
         self.mouse_hover_change(self.run_button, "Run")
 
 
-        # ---- If player chooses FIGHT ----
-        self.fight_button.bind("<Button-1>", self.moves_GUI)
 
 
         self.pokemon_name_box = Label(self.root, text="PLACEHOLDER",font=self.font) # self.get_pokemon_name_pl
