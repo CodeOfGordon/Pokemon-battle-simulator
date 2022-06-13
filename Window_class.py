@@ -16,7 +16,7 @@ BOTTOM_BARY = MENU_CENTERY * 0.75
 TOP_BOTTOM_FRAME = SIDE_FRAME = BOTTOM_BARY * 0.05
 BOTTOM_BARY_TOP = MENU_HEIGHT-BOTTOM_BARY
 
-class GamePokemon:
+class Window:
 
     def __init__(self):
         self.root = Tk()
@@ -90,7 +90,9 @@ class GamePokemon:
 
     def setup(self): # Change to use place() instead of grid(). Also origin is top left corner
         '''Create all of the widgets for the menu.'''
-        background = 
+        background = Image("Sprites/pokemon_background.png")
+        background = ImageTk(background)
+        background.place(x=0,)
 
 
         self.font = Font(family="Helvetica", size=20, weight="bold")
@@ -165,5 +167,5 @@ class GamePokemon:
 
 
 if __name__ == '__main__':
-    window = GamePokemon()
+    window = Window()
     window.root.mainloop()
