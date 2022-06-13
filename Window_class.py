@@ -5,7 +5,7 @@ from Pokemon_class import *
 from Fight_class import *
 from Player_class import *
 import random
-from PIL import Image, ImageTk
+#from PIL import Image, ImageTk
 
 
 MENU_WIDTH = 1024
@@ -91,7 +91,7 @@ class Window:
     def setup(self): # Change to use place() instead of grid(). Also origin is top left corner
         '''Create all of the widgets for the menu.'''
         background = Image("Sprites/pokemon_background.png")
-        background = ImageTk(background)
+        #background = ImageTk(background)
         background.place(x=0,)
 
 
