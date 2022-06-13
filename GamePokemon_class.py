@@ -62,7 +62,7 @@ class GamePokemon:
         button.bind("<Enter>", lambda e: button.config(text="➤ " + oldtext))
         button.bind("<Leave>", lambda e: button.config(text=oldtext))
     
-    def moves_GUI(self,event):
+    def moves_GUI(self,event,move1="move1",move2="move2",move3="move3",move4="move4"):
         '''Create the GUI for the moves.'''
         OPTIONS_MOVES_FRAME_WIDTH = MENU_WIDTH-(2*SIDE_FRAME)
         OPTIONS_MOVES_FRAME_HEIGHT = (BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75)
@@ -70,16 +70,16 @@ class GamePokemon:
         self.moves_frame = Frame(self.root, bg="white")
         self.moves_frame.place(x=SIDE_FRAME, y=BOTTOM_BARY_TOP+TOP_BOTTOM_FRAME, width=OPTIONS_MOVES_FRAME_WIDTH, height=OPTIONS_MOVES_FRAME_HEIGHT)
 
-        self.move1 = Button(self.moves_frame, text="move1", font=self.font, justify=LEFT,command=self.test)
+        self.move1 = Button(self.moves_frame, text=move1, font=self.font, justify=LEFT,command=self.test)
         self.move1.place(x=0,y=0,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
 
-        self.move2 = Button(self.moves_frame, text="move2", font=self.font, justify=LEFT,command=self.test)
+        self.move2 = Button(self.moves_frame, text=move2, font=self.font, justify=LEFT,command=self.test)
         self.move2.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=0,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2) 
 
-        self.move3 = Button(self.moves_frame, text="move3", font=self.font, justify=LEFT,command=self.test)
+        self.move3 = Button(self.moves_frame, text=move3, font=self.font, justify=LEFT,command=self.test)
         self.move3.place(x=0,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
 
-        self.move4 = Button(self.moves_frame, text="move4", font=self.font, justify=LEFT,command=self.test)
+        self.move4 = Button(self.moves_frame, text=move4, font=self.font, justify=LEFT,command=self.test)
         self.move4.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
 
         self.move2.bind("<Escape>", lambda e: self.moves_frame.destroy)
@@ -138,6 +138,7 @@ class GamePokemon:
 
         # ---- If player chooses FIGHT ----
         self.fight_button.bind("<Button-1>", self.moves_GUI)
+        #TO USE IN APP : self.fight_button['command'] = lambda 
 
 
         self.pokemon_name_box = Label(self.root, text="PLACEHOLDER",font=self.font) # self.get_pokemon_name_pl
