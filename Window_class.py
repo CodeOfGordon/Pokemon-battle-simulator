@@ -5,7 +5,7 @@ from Pokemon_class import *
 from Fight_class import *
 from Player_class import *
 import random
-#from PIL import Image, ImageTk
+from PIL import Image, ImageTk
 
 
 MENU_WIDTH = 1024
@@ -53,6 +53,7 @@ class Window:
     def get_pokemon_remaining_pl(self):
         return self.pokemon_remaining_pl
 
+
     def test(self):
         COLORS = ["red", "green", "blue", "yellow"]
         example = Label(self.root, text="test", background=random.choice(COLORS))
@@ -84,23 +85,14 @@ class Window:
         self.move4 = Button(self.moves_frame, text="move4", font=self.font, justify=LEFT,command=self.test)
         self.move4.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
 
-
-
-
     def setup(self): # Change to use place() instead of grid(). Also origin is top left corner
         '''Create all of the widgets for the menu.'''
-<<<<<<< Updated upstream
-        background = Image("Sprites/pokemon_background.png")
-        #background = ImageTk(background)
-        background.place(x=0,)
-=======
-        self.bckgrnd = Image.open("pokemon_background.png")
-        self.bckgrnd.resize((MENU_WIDTH,BOTTOM_BARY_TOP))
-        self.bckgrnd = ImageTk.PhotoImage(self.bckgrnd)
-        self.background = Label(self.root,image=self.bckgrnd)
+        #self.bckgrnd = Image.open("pokemon_background.png")
+        #self.bckgrnd.resize((MENU_WIDTH,BOTTOM_BARY_TOP))
+        #self.bckgrnd = ImageTk.PhotoImage(self.bckgrnd)
+        #self.background = Label(self.root,image=self.bckgrnd)
 
-        self.background.place(x=0,y=0,width=MENU_WIDTH,height=BOTTOM_BARY_TOP)
->>>>>>> Stashed changes
+        #self.background.place(x=0,y=0,width=MENU_WIDTH,height=BOTTOM_BARY_TOP)
 
 
         self.font = Font(family="Helvetica", size=20, weight="bold")
