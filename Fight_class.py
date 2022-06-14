@@ -2,11 +2,12 @@ import csv
 
 class Fight:
 
-    def __init__(self,move,damage,pokemon):
+    def __init__(self,move,damage,pokemon,enemy_pokemon):
 
         self.move = move
         self.damage = damage
         self.pokemon = pokemon
+        self.enemy_pokemon = enemy_pokemon
 
     def get_move(self):
         return self.move
@@ -16,6 +17,9 @@ class Fight:
 
     def get_pokemon(self):
         return self.pokemon
+
+    def get_enemy_pokemon(self):
+        return self.enemy_pokemon
 
 def get_multiplier(filename,attacker_type,defender_type):
     ''' (str,str,str) -> int

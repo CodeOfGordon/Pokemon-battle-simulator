@@ -9,7 +9,15 @@ import random
 from PIL import Image, ImageTk
 
 class Main:
-    Window()
+
+    def __init__(self):
+        self.window = Window()
+
+    def setting_up_buttons(self):
+        fight_button = self.window.fight_button()
+        fight_button['command'] = self.window.moves_GUI
 
 if __name__ == "__main__":
-    Main()
+    menu = ""#menu we havent created
+    game = Main()
+    game.window.root.mainloop()
