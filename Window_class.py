@@ -5,11 +5,11 @@ from Pokemon_class import *
 from Fight_class import *
 from Player_class import *
 import random
-#from PIL import Image, ImageTk
+from PIL import Image, ImageTk
 
 
-MENU_WIDTH = 1024
-MENU_HEIGHT = 576
+MENU_WIDTH = 953
+MENU_HEIGHT = 584+250
 MENU_CENTERX = MENU_WIDTH / 2
 MENU_CENTERY = MENU_HEIGHT / 2
 BOTTOM_BARY = MENU_CENTERY * 0.75
@@ -89,18 +89,12 @@ class Window:
 
     def setup(self): # Change to use place() instead of grid(). Also origin is top left corner
         '''Create all of the widgets for the menu.'''
-<<<<<<< Updated upstream
-        background = Image("Sprites/pokemon_background.png")
-        #background = ImageTk(background)
-        background.place(x=0,)
-=======
-        self.bckgrnd = Image.open("pokemon_background.png")
-        self.bckgrnd.resize((MENU_WIDTH,BOTTOM_BARY_TOP))
-        self.bckgrnd = ImageTk.PhotoImage(self.bckgrnd)
-        self.background = Label(self.root,image=self.bckgrnd)
+        wallpaper = Image.open("pokemon_background.png")
+        wallpaper = ImageTk.PhotoImage(wallpaper)
 
-        self.background.place(x=0,y=0,width=MENU_WIDTH,height=BOTTOM_BARY_TOP)
->>>>>>> Stashed changes
+        self.background = Label(self.root,image=wallpaper, bg=None)
+        self.background.image = wallpaper
+        self.background.place(x=0, y=0, width=MENU_WIDTH, height=BOTTOM_BARY_TOP)
 
 
         self.font = Font(family="Helvetica", size=20, weight="bold")
