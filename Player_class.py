@@ -1,3 +1,6 @@
+import random
+from Pokemon_class import make_pokemon
+
 class Player:
 
     def __init__(self,pokemon,team,items):
@@ -14,3 +17,15 @@ class Player:
 
     def get_items(self):
         return self.items
+
+def create_teams(filename):
+    '''(str) -> list,list
+    Creates 2 teams of 4 random pokemon
+    '''
+    pokedex = make_pokemon(filename)
+    team_1 = []
+    team_2 = []
+    for x in range(4):
+        team_1.append(pokedex[random.randint(151)])
+        team_2.append(pokedex[random.randint(151)])
+    return team_1,team_2
