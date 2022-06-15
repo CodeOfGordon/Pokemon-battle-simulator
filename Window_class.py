@@ -52,11 +52,6 @@ class Window:
 
     def get_pokemon_remaining_pl(self):
         return self.pokemon_remaining_pl
-
-    def mouse_hover_change(self, button, oldtext):
-        '''Change the text of the button when the mouse is over it.'''
-        button.bind("<Enter>", lambda e: button.config(text="➤ " + oldtext))
-        button.bind("<Leave>", lambda e: button.config(text=oldtext))
     
 
     def moves_GUI(self):
@@ -98,6 +93,19 @@ class Window:
         OPTIONS_INNER_FRAME_WIDTH = MENU_CENTERX-(2*SIDE_FRAME)
         OPTIONS_INNER_FRAME_HEIGHT = (BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75)
 
+        # Pokemon Sprites
+        pokemon_player = Image.open("test_jojo.png")
+        pokemon_player.resize((20,20), Image.ANTIALIAS)
+        # pokemon_player = Image.open(pokemon_player + ".png")
+        pokemon_player_resize = ImageTk.PhotoImage(pokemon_player)
+
+        self.pokemon_player_img = Label(self.root, image=pokemon_player_resize, bg=None)
+        self.pokemon_player_img.image = pokemon_player_resize
+        pokemon_player_waist_up = pokemon_player_resize.height() / 2
+        self.pokemon_player_img.place(x=MENU_CENTERX/4, y=BOTTOM_BARY_TOP-pokemon_player_waist_up)
+
+
+
 
         # Bottom bar
         BOTTOM_OUTTER_FRAME_COLOR = "#d64739"
@@ -120,31 +128,24 @@ class Window:
         self.fight_button = Button(self.right_options_frame, text="Fight", font=self.font, justify=LEFT)
         self.fight_button.place(x=0,y=0,width=OPTIONS_INNER_FRAME_WIDTH/2,height=OPTIONS_INNER_FRAME_HEIGHT/2)
         self.fight_button.config(borderwidth=0)
-        self.mouse_hover_change(self.fight_button, "Fight")
+        
         
         # top right button
         self.bag_button = Button(self.right_options_frame, text="Bag", font=self.font, justify=LEFT)
         self.bag_button.place(x=OPTIONS_INNER_FRAME_WIDTH/2,y=0,width=OPTIONS_INNER_FRAME_WIDTH/2,height=OPTIONS_INNER_FRAME_HEIGHT/2)
         self.bag_button.config(borderwidth=0)
-        self.bag_button["state"] = DISABLED
-        self.mouse_hover_change(self.bag_button, "Bag")
 
         # bottom left button
         self.switch_button = Button(self.right_options_frame, text="Switch", font=self.font, justify=LEFT)
         self.switch_button.place(x=0,y=OPTIONS_INNER_FRAME_HEIGHT/2,width=OPTIONS_INNER_FRAME_WIDTH/2,height=OPTIONS_INNER_FRAME_HEIGHT/2)
         self.switch_button.config(borderwidth=0)
-        self.mouse_hover_change(self.switch_button, "Switch")
 
         # bottom right button
         self.run_button = Button(self.right_options_frame, text="Run", font=self.font, justify=LEFT)
         self.run_button.place(x=OPTIONS_INNER_FRAME_WIDTH/2,y=OPTIONS_INNER_FRAME_HEIGHT/2,width=OPTIONS_INNER_FRAME_WIDTH/2,height=OPTIONS_INNER_FRAME_HEIGHT/2)
         self.run_button.config(borderwidth=0)
-        self.mouse_hover_change(self.run_button, "Run")
 
 
-
-
-        self.pokemon_name_box = Label(self.root, text="PLACEHOLDER",font=self.font) # self.get_pokemon_name_pl
 
 
 
