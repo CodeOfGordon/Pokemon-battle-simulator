@@ -14,10 +14,7 @@ class Main:
         self.window = Window()
         self.setting_up_buttons()
         self.setting_up_mouse_hover()
-        team1,team2 = self.setup_teams()
-        current_pokemon = team1[0]
-        current_opp_pokemon = team2[0]
-        self.change_current_pokemon_label(current_pokemon)
+        self.start_of_game()
     
     def add_moves_to_team(self,team):
         for pokemon in team:
@@ -25,6 +22,12 @@ class Main:
 
     def change_current_pokemon_label(self,pokemon):
         self.window.options_ask_start['text'] = pokemon
+
+    def start_of_game(self):
+        team1,team2 = self.setup_teams()
+        current_pokemon = team1[0]
+        current_opp_pokemon = team2[0]
+        self.change_current_pokemon_label(current_pokemon)
 
     def setup_teams(self):
         team_1,team_2 = create_teams("pokemon.csv")
