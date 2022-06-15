@@ -74,6 +74,8 @@ class Window:
         self.move4 = Button(self.moves_frame, text="move4", font=self.font, justify=LEFT)
         self.move4.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
 
+        def switch_GUI(self):
+            '''Create the GUI for switching the pokemon'''
 
 
 
@@ -145,9 +147,16 @@ class Window:
         self.run_button.place(x=OPTIONS_INNER_FRAME_WIDTH/2,y=OPTIONS_INNER_FRAME_HEIGHT/2,width=OPTIONS_INNER_FRAME_WIDTH/2,height=OPTIONS_INNER_FRAME_HEIGHT/2)
         self.run_button.config(borderwidth=0)
 
+        # Switch GUI
+        OUTTER_SWITCH_FRAME_COLOR = "#d64739"
+        self.OUTTER_SWITCH_FRAME = Frame(self.root,bg=OUTTER_SWITCH_FRAME_COLOR)
+        self.OUTTER_SWITCH_FRAME.place(x=0,y=0,width=MENU_WIDTH,height=MENU_HEIGHT)
 
-
-
+        INNER_SWITCH_FRAME_COLOR = "#f8f8f8"
+        self.INNER_SWITCH_FRAME = Frame(self.root,bg=INNER_SWITCH_FRAME_COLOR)
+        self.INNER_SWITCH_FRAME.place(x=SIDE_FRAME,y=TOP_BOTTOM_FRAME,width=MENU_WIDTH-2*SIDE_FRAME,height=MENU_HEIGHT-2*TOP_BOTTOM_FRAME)
+        
+        
 
 
 
