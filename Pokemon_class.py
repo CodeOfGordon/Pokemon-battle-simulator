@@ -29,9 +29,6 @@ class Pokemon:
 
     def __getitem__(self,item):
         return self.attributes[item]
-    
-    def __getattribute__(self, item):
-        return self.attributes[item]
 
     def get_name(self):
         return self.name

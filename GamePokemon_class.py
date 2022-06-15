@@ -18,12 +18,14 @@ class Main:
     
     def add_moves_to_team(self,team):
         for pokemon in team:
-            pokemon[0]['moves'] = make_moves(pokemon[0]['type'],"moves.csv")
+            pokemon[0]['moves'].append(make_moves(pokemon[0]['type'],"moves.csv"))
 
     def setup_teams(self):
         team_1,team_2 = create_teams("pokemon.csv")
         team_1 = self.add_moves_to_team(team_1)
         team_2 = self.add_moves_to_team(team_2)
+    
+    #def get_current_pokemon(self):
 
     def test(self):
         COLORS = ["red", "green", "blue", "yellow"]
@@ -41,6 +43,7 @@ class Main:
         self.window.bag_button["state"] = DISABLED
         self.mouse_hover_change(self.window.switch_button, "Switch")
         self.mouse_hover_change(self.window.run_button, "Run")
+
 
     def exit_current_GUI(self):
         
@@ -61,6 +64,8 @@ class Main:
         # self.window.move2_button['command'] =
         # self.window.move3_button['command'] =
         # self.window.move4_button['command'] =
+
+        self.window.switch_button['command'] = self.window.switch_GUI
 
 if __name__ == "__main__":
     menu = ""#menu we havent created

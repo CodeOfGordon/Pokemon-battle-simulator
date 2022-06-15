@@ -74,39 +74,39 @@ class Window:
         self.move4 = Button(self.moves_frame, text="move4", font=self.font, justify=LEFT)
         self.move4.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
 
-        def switch_GUI(self):
-            '''Create the GUI for switching the pokemon'''
-            # Switch GUI
-            OUTTER_SWITCH_FRAME_COLOR = "#d64739"
-            self.OUTTER_SWITCH_FRAME = Frame(self.root,bg=OUTTER_SWITCH_FRAME_COLOR)
-            self.OUTTER_SWITCH_FRAME.place(x=0,y=0,width=MENU_WIDTH,height=MENU_HEIGHT)
+    def switch_GUI(self):
+        '''Create the GUI for switching the pokemon'''
+        # Switch GUI
+        OUTTER_SWITCH_FRAME_COLOR = "#d64739"
+        self.OUTTER_SWITCH_FRAME = Frame(self.root,bg=OUTTER_SWITCH_FRAME_COLOR)
+        self.OUTTER_SWITCH_FRAME.place(x=0,y=0,width=MENU_WIDTH,height=MENU_HEIGHT)
 
-            INNER_SWITCH_FRAME_COLOR = "#f8f8f8"
-            self.INNER_SWITCH_FRAME = Frame(self.root,bg=INNER_SWITCH_FRAME_COLOR)
-            self.INNER_SWITCH_FRAME.place(x=SIDE_FRAME,y=TOP_BOTTOM_FRAME,width=MENU_WIDTH-2*SIDE_FRAME,height=MENU_HEIGHT-2*TOP_BOTTOM_FRAME)
-            
-            SWITCH_BUTTONS_FRAME_WIDTH = MENU_WIDTH-(2*(MENU_CENTERX/4))
-            SWITCH_BUTTONS_FRAME_HEIGHT = MENU_HEIGHT-(2*(MENU_HEIGHT/10))
-            self.PokemonButtons = Frame(self.root, bg="#f8f8f8") 
-            self.PokemonButtons.place(x=MENU_CENTERX/4,y=MENU_HEIGHT/10,width=SWITCH_BUTTONS_FRAME_WIDTH,height=SWITCH_BUTTONS_FRAME_HEIGHT)
+        INNER_SWITCH_FRAME_COLOR = "#f8f8f8"
+        self.INNER_SWITCH_FRAME = Frame(self.root,bg=INNER_SWITCH_FRAME_COLOR)
+        self.INNER_SWITCH_FRAME.place(x=SIDE_FRAME,y=TOP_BOTTOM_FRAME,width=MENU_WIDTH-2*SIDE_FRAME,height=MENU_HEIGHT-2*TOP_BOTTOM_FRAME)
+        
+        SWITCH_BUTTONS_FRAME_WIDTH = MENU_WIDTH-(2*(MENU_CENTERX/4))
+        SWITCH_BUTTONS_FRAME_HEIGHT = MENU_HEIGHT-(2*(MENU_HEIGHT/10))
+        self.PokemonButtons = Frame(self.root, bg="#f8f8f8") 
+        self.PokemonButtons.place(x=MENU_CENTERX/4,y=MENU_HEIGHT/10,width=SWITCH_BUTTONS_FRAME_WIDTH,height=SWITCH_BUTTONS_FRAME_HEIGHT)
 
-            self.Pokemon1 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
-            self.Pokemon1.place(x=0,y=0,width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
+        self.Pokemon1 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
+        self.Pokemon1.place(x=0,y=0,width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
 
-            self.Pokemon2 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
-            self.Pokemon2.place(x=(SWITCH_BUTTONS_FRAME_WIDTH/2),y=(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
+        self.Pokemon2 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
+        self.Pokemon2.place(x=(SWITCH_BUTTONS_FRAME_WIDTH/2),y=(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
 
-            self.Pokemon3 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
-            self.Pokemon3.place(x=0,y=2*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
-            
-            self.Pokemon4 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
-            self.Pokemon4.place(x=(SWITCH_BUTTONS_FRAME_WIDTH/2),y=3*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
+        self.Pokemon3 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
+        self.Pokemon3.place(x=0,y=2*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
+        
+        self.Pokemon4 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
+        self.Pokemon4.place(x=(SWITCH_BUTTONS_FRAME_WIDTH/2),y=3*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
 
-            self.Pokemon5 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
-            self.Pokemon5.place(x=0,y=4*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
+        self.Pokemon5 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
+        self.Pokemon5.place(x=0,y=4*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
 
-            self.Pokemon6 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
-            self.Pokemon6.place(x=(SWITCH_BUTTONS_FRAME_WIDTH/2),y=5*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
+        self.Pokemon6 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
+        self.Pokemon6.place(x=(SWITCH_BUTTONS_FRAME_WIDTH/2),y=5*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
 
 
     def setup(self): # Origin is top left corner
