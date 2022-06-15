@@ -27,6 +27,12 @@ class Pokemon:
     def __repr__(self):
         return f"{self.index},{self.name},{self.type},{self.hp},{self.attack},{self.defence},{self.level},{self.moves}"
 
+    def __getitem__(self,item):
+        return self.attributes[item]
+    
+    def __getattribute__(self, item):
+        return self.attributes[item]
+
     def get_name(self):
         return self.name
 

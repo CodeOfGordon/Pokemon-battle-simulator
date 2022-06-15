@@ -14,7 +14,17 @@ class Main:
         self.window = Window()
         self.setting_up_buttons()
         self.setting_up_mouse_hover()
+        self.setup_teams()
     
+    def add_moves_to_team(self,team):
+        for pokemon in team:
+            pokemon[0]['moves'] = make_moves(pokemon[0]['type'],"moves.csv")
+
+    def setup_teams(self):
+        team_1,team_2 = create_teams("pokemon.csv")
+        team_1 = self.add_moves_to_team(team_1)
+        team_2 = self.add_moves_to_team(team_2)
+
     def test(self):
         COLORS = ["red", "green", "blue", "yellow"]
         example = Label(self.window.root, text="test", background=random.choice(COLORS))
