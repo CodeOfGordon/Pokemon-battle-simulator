@@ -13,6 +13,7 @@ class Main:
     def __init__(self):
         self.window = Window()
         self.setting_up_buttons()
+        self.gordons_mother()
     
     def test(self):
         COLORS = ["red", "green", "blue", "yellow"]
