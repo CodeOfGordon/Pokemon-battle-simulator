@@ -156,7 +156,10 @@ class Window:
         self.INNER_SWITCH_FRAME = Frame(self.root,bg=INNER_SWITCH_FRAME_COLOR)
         self.INNER_SWITCH_FRAME.place(x=SIDE_FRAME,y=TOP_BOTTOM_FRAME,width=MENU_WIDTH-2*SIDE_FRAME,height=MENU_HEIGHT-2*TOP_BOTTOM_FRAME)
         
-        
+        self.PokemonButtons = Frame(self.root, bg="#f8f8f8")
+        self.PokemonButtons.place(x=MENU_CENTERX*0.75,y=MENU_HEIGHT*0.50,width=MENU_CENTERX*0.75,height=MENU_HEIGHT*0.50)
+
+        self.Pokemon1 = Button(self.PokemonButtons)
 
 
 
