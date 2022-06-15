@@ -4,7 +4,7 @@ from Move_class import create_moves
 
 class Pokemon:
 
-    def __init__(self,index,name,type,hp,attack,defence,level=50,moves=[]):
+    def __init__(self,index,name,type,hp,attack,defence,moves=[],level=50):
         self.index = index
         self.name = name
         self.type = type
@@ -20,8 +20,8 @@ class Pokemon:
             'hp' : self.hp,
             'attack' : self.attack,
             'defence' : self.defence,
-            'leve' : self.level,
-            'moves' : self.moves
+            'moves' : self.moves,
+            'level' : self.level
         }
 
     def __repr__(self):
