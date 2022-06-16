@@ -6,6 +6,7 @@ from Fight_class import *
 from Player_class import *
 from Window_class import *
 import random
+import os
 from PIL import Image, ImageTk
 
 class Main:
@@ -19,6 +20,7 @@ class Main:
         current_pokemon = team1[0]
         current_opp_pokemon = team2[0]
         self.change_current_pokemon_label(current_pokemon)
+        self.change_pokemon_img("pokemon_pngs",current_pokemon['name'])
 
     
     def add_moves_to_team(self,team):
@@ -29,8 +31,16 @@ class Main:
     def change_current_pokemon_label(self,pokemon):
         self.window.options_ask_start['text'] = f"What will\n{pokemon['name']} do?"
     
-    def change_pokemon_img(self,pokemon):
+    def change_pokemon_img(self,folder,pokemon):
         ''' Detect the pokemon, then adds it with the appropiate image sprite '''
+        filename = f"{pokemon}_back.png"
+        pokemon_image = os.path.join(folder, filename)
+        image = Image.open(pokemon_image)
+        image.resize((20,20), Image.ANTIALIAS)
+        image = ImageTk.PhotoImage(image)
+        self.window.pokemon_player_img['image'] = image
+        self.window.pokemon_player_img['bg'] = None
+
 
     def setup_teams(self):
         team_1,team_2 = create_teams("pokemon.csv")
