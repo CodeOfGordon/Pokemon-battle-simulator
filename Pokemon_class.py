@@ -1,10 +1,10 @@
 import csv
 import random
-from Move_class import create_moves
+from Move_class import create_all_moves
 
 class Pokemon:
 
-    def __init__(self,index,name,type,hp,attack,defence,moves=[],level=50):
+    def __init__(self,index,name,type,hp,attack,defence,moves,level=50):
         self.index = index
         self.name = name
         self.type = type
@@ -57,10 +57,14 @@ def make_moves(type,filename):
     '''
     pokemon_moves = []
     try:
-        all_moves = create_moves(filename)
+        all_moves = create_all_moves(filename)
+        all_type_moves = []
+        for move in all_moves:
+            if all_moves[move]['type'] == type:
+                all_type_moves.append(all_moves[move])
         while len(pokemon_moves) < 4:
-            move = all_moves[random.randint(1,165)]
-            if move["type"] == type:
+            move = all_type_moves[random.randint(1,len(all_type_moves)-1)]
+            if move not in pokemon_moves:
                 pokemon_moves.append([move])
     except FileNotFoundError:
         print("File not found.")
@@ -75,7 +79,7 @@ def make_pokemon(filename):
         with open(filename) as f:
             reader = csv.DictReader(f)
             for row in reader:
-                pokedex[row["#"]] = Pokemon(row["#"],row["Name"],row["Type"],row["HP"],row["Attack"],row["Defense"])
+                pokedex[row["#"]] = Pokemon(row["#"],row["Name"],row["Type"],row["HP"],row["Attack"],row["Defense"],[])
     except FileNotFoundError:
         print("File not found.")
     return pokedex

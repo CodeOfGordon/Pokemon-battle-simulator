@@ -6,7 +6,7 @@ from Fight_class import *
 from Player_class import *
 from Window_class import *
 import random
-from PIL import Image, ImageTk
+#from PIL import Image, ImageTk
 
 class Main:
 

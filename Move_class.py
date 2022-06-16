@@ -32,7 +32,7 @@ class Move:
     def get_damage(self):
         return self.damage
 
-def create_moves(filename):
+def create_all_moves(filename):
     ''' (str) -> dict
     Creates and returns a dictionary of every move possible
     '''
