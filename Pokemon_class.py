@@ -62,8 +62,9 @@ def make_moves(type,filename):
         for move in all_moves:
             if all_moves[move]['type'] == type:
                 all_type_moves.append(all_moves[move])
+        length = len(all_type_moves)-1
         while len(pokemon_moves) < 4:
-            move = all_type_moves[random.randint(1,len(all_type_moves)-1)]
+            move = all_type_moves[random.randint(1,length)]
             if move not in pokemon_moves:
                 pokemon_moves.append([move])
 

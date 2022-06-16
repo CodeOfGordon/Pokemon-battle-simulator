@@ -18,7 +18,7 @@ class Main:
         team1,team2 = self.setup_teams()
         current_pokemon = team1[0]
         current_opp_pokemon = team2[0]
-        self.change_current_pokemon(current_pokemon)
+        self.change_current_pokemon_label(current_pokemon)
 
     
     def add_moves_to_team(self,team):
@@ -27,9 +27,10 @@ class Main:
         return team
 
     def change_current_pokemon_label(self,pokemon):
-        self.window.options_ask_start['text'] = pokemon['name']
+        self.window.options_ask_start['text'] = f"What will\n{pokemon['name']} do?"
     
-
+    def change_pokemon_img(self,pokemon):
+        ''' Detect the pokemon, then adds it with the appropiate image sprite '''
 
     def setup_teams(self):
         team_1,team_2 = create_teams("pokemon.csv")
