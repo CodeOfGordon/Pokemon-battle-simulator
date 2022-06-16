@@ -177,7 +177,9 @@ class Window:
         self.run_button.place(x=OPTIONS_INNER_FRAME_WIDTH/2,y=OPTIONS_INNER_FRAME_HEIGHT/2,width=OPTIONS_INNER_FRAME_WIDTH/2,height=OPTIONS_INNER_FRAME_HEIGHT/2)
         self.run_button.config(borderwidth=0)
 
-        
+        # HP boxes
+        self.player_hp_box = Label(self.root, text="HP:", bg="#69a1a2",font=self.font)
+        self.player_hp_box.place(x=MENU_CENTERX*1.1, y=MENU_CENTERY*0.8, width=MENU_CENTERX*0.85, height=BOTTOM_BARY/2)
 
 
 
