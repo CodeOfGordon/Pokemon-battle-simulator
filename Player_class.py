@@ -26,6 +26,6 @@ def create_teams(filename):
     team_1 = []
     team_2 = []
     for x in range(4):
-        team_1.append([pokedex[str(random.randint(1,151))]])
-        team_2.append([pokedex[str(random.randint(1,151))]])
+        team_1.append(pokedex[str(random.randint(1,151))])
+        team_2.append(pokedex[str(random.randint(1,151))])
     return team_1,team_2

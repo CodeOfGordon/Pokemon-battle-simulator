@@ -66,6 +66,7 @@ def make_moves(type,filename):
             move = all_type_moves[random.randint(1,len(all_type_moves)-1)]
             if move not in pokemon_moves:
                 pokemon_moves.append([move])
+
     except FileNotFoundError:
         print("File not found.")
     return pokemon_moves

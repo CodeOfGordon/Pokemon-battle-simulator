@@ -6,7 +6,7 @@ from Fight_class import *
 from Player_class import *
 from Window_class import *
 import random
-#from PIL import Image, ImageTk
+from PIL import Image, ImageTk
 
 class Main:
 
@@ -19,16 +19,18 @@ class Main:
         current_pokemon = team1[0]
         current_opp_pokemon = team2[0]
         self.change_current_pokemon_label(current_pokemon)
+        print(current_pokemon)
+        print(current_opp_pokemon)
 
     
     def add_moves_to_team(self,team):
         for pokemon in team:
-            pokemon[0]['moves'].append(make_moves(pokemon[0]['type'],"moves.csv"))
+            pokemon['moves'].append(make_moves(pokemon['type'],"moves.csv"))
         return team
 
     def change_current_pokemon_label(self,pokemon):
         print(pokemon)
-        self.window.options_ask_start['text'] = pokemon[0]['name']
+        self.window.options_ask_start['text'] = pokemon['name']
 
     def setup_teams(self):
         team_1,team_2 = create_teams("pokemon.csv")
