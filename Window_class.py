@@ -5,7 +5,7 @@ from Pokemon_class import *
 from Fight_class import *
 from Player_class import *
 import random
-#from PIL import Image, ImageTk
+from PIL import Image, ImageTk
 
 
 MENU_WIDTH = 953
