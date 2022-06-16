@@ -18,9 +18,7 @@ class Main:
         team1,team2 = self.setup_teams()
         current_pokemon = team1[0]
         current_opp_pokemon = team2[0]
-        self.change_current_pokemon_label(current_pokemon)
-        print(current_pokemon)
-        print(current_opp_pokemon)
+        self.change_current_pokemon(current_pokemon)
 
     
     def add_moves_to_team(self,team):
@@ -29,8 +27,9 @@ class Main:
         return team
 
     def change_current_pokemon_label(self,pokemon):
-        print(pokemon)
         self.window.options_ask_start['text'] = pokemon['name']
+    
+
 
     def setup_teams(self):
         team_1,team_2 = create_teams("pokemon.csv")
@@ -56,7 +55,7 @@ class Main:
         self.mouse_hover_change(self.window.run_button, "Run")
 
 
-    def exit_current_GUI(self):
+    def exit_current_GUI(self): # Go back button
         
         self.window.root.destroy()
     
