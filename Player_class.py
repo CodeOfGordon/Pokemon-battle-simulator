@@ -19,7 +19,7 @@ class Player:
         return self.items
 
 def create_teams(filename):
-    '''(str) -> list,list
+    '''(str) -> tuple
     Creates 2 teams of 4 random pokemon
     '''
     pokedex = make_pokemon(filename)
