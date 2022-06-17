@@ -111,8 +111,10 @@ class Window:
         self.go_back()
 
     def go_back(self):
-        
-        go_back = Button(self.root,)
+        #d64739
+        go_back_button = Button(self.root)
+        go_back_button.config(text = "test", borderwidth = 0)
+        go_back_button.place(x = 0, y = 389, width = 100, height = 50)
 
     def setup(self): # Origin is top left corner
         '''Create all of the widgets for the main game menu.'''
