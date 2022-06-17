@@ -15,8 +15,8 @@ class Player:
     def get_team(self):
         return self.team
 
-    def get_items(self):
-        return self.items
+    #def get_items(self):
+        #return self.items
 
 def create_teams(filename):
     '''(str) -> tuple
