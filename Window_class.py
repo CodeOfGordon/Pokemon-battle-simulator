@@ -1,5 +1,7 @@
 from tkinter import *
+from tkinter.ttk import Progressbar
 from tkinter.font import BOLD, Font
+from turtle import bgcolor
 from Move_class import *
 from Pokemon_class import *
 from Fight_class import *
@@ -134,8 +136,7 @@ class Window:
 
         # Pokemon Sprites
         pokemon_player = Image.open("test_jojo.png")
-        pokemon_player.resize((20,20), Image.ANTIALIAS)
-        # pokemon_player = Image.open(pokemon_player + ".png")
+        pokemon_player = pokemon_player.resize((20,20), Image.ANTIALIAS)
         pokemon_player_resize = ImageTk.PhotoImage(pokemon_player)
 
         self.pokemon_player_img = Label(self.root, image=pokemon_player_resize, bg=None)
@@ -167,6 +168,7 @@ class Window:
         self.fight_button = Button(self.right_options_frame, text="Fight", font=self.font, justify=LEFT)
         self.fight_button.place(x=0,y=0,width=OPTIONS_INNER_FRAME_WIDTH/2,height=OPTIONS_INNER_FRAME_HEIGHT/2)
         self.fight_button.config(borderwidth=0)
+        self.fight_button['command'] = self.moves_GUI()
         
         
         # top right button
@@ -185,8 +187,10 @@ class Window:
         self.run_button.config(borderwidth=0)
 
         # HP boxes
-        self.player_hp_box = Label(self.root, text="HP:", bg="#69a1a2",font=self.font)
+        self.player_hp_box = Frame(self.root)
         self.player_hp_box.place(x=MENU_CENTERX*1.1, y=MENU_CENTERY*0.9, width=MENU_CENTERX*0.85, height=BOTTOM_BARY/2.5)
+        progress_bar_pl = Progressbar(self.root, length = 100, orient = HORIZONTAL, mode = 'determinate')
+        progress_bar_pl.place(x=MENU_CENTERX*(1.1+0.15),y=MENU_CENTERY,width=(MENU_CENTERX*0.85)*0.8)
 
         self.opp_hp_box = Label(self.root, text="HP:", bg="#69a1a2", font=self.font)
         self.opp_hp_box.place(x=MENU_CENTERX*0.1, y=MENU_CENTERY*0.2, width=MENU_CENTERX*0.85, height=BOTTOM_BARY/2.5)

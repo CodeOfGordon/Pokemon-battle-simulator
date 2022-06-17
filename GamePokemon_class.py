@@ -21,7 +21,7 @@ class Main:
         current_opp_pokemon = team2[0]
         self.change_current_pokemon_label(current_pokemon)
         self.change_pokemon_img("pokemon_pngs",current_pokemon['name'])
-
+        self.change_move_labels(current_pokemon['moves'][0])
     
     def add_moves_to_team(self,team):
         for pokemon in team:
@@ -36,11 +36,19 @@ class Main:
         filename = f"{pokemon}_back.png"
         pokemon_image = os.path.join(folder, filename)
         image = Image.open(pokemon_image)
-        image.resize((20,20), Image.ANTIALIAS)
+        image = image.resize((300,300), Image.ANTIALIAS)
         image = ImageTk.PhotoImage(image)
         self.window.pokemon_player_img['image'] = image
         self.window.pokemon_player_img['bg'] = None
+        self.window.pokemon_player_img.image = image
+        pokemon_player_waist_up = image.height() / 1.5
+        self.window.pokemon_player_img.place(x=MENU_CENTERX/4, y=BOTTOM_BARY_TOP-pokemon_player_waist_up)
 
+    def change_move_labels(self,moves):
+        self.window.move1['text'] = moves[0][0]['name']
+        self.window.move2['text'] = moves[1][0]['name']
+        self.window.move3['text'] = moves[2][0]['name']
+        self.window.move4['text'] = moves[3][0]['name']
 
     def setup_teams(self):
         team_1,team_2 = create_teams("pokemon.csv")
@@ -68,9 +76,6 @@ class Main:
 
     
 
-    def open_moves_gui(self):
-        self.window.moves_GUI
-
     def setting_up_buttons(self):
         self.window.fight_button['command'] = self.test
         self.window.bag_button['command'] = self.test
@@ -78,6 +83,7 @@ class Main:
         self.window.run_button['command'] = self.test
 
         self.window.fight_button['command'] = self.window.moves_GUI
+
         # self.window.move1_button['command'] =
         # self.window.move2_button['command'] =
         # self.window.move3_button['command'] =
