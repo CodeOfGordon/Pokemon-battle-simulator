@@ -127,8 +127,7 @@ class Window:
 
         # Pokemon Sprites
         pokemon_player = Image.open("test_jojo.png")
-        pokemon_player.resize((20,20), Image.ANTIALIAS)
-        # pokemon_player = Image.open(pokemon_player + ".png")
+        pokemon_player = pokemon_player.resize((20,20), Image.ANTIALIAS)
         pokemon_player_resize = ImageTk.PhotoImage(pokemon_player)
 
         self.pokemon_player_img = Label(self.root, image=pokemon_player_resize, bg=None)
@@ -160,6 +159,7 @@ class Window:
         self.fight_button = Button(self.right_options_frame, text="Fight", font=self.font, justify=LEFT)
         self.fight_button.place(x=0,y=0,width=OPTIONS_INNER_FRAME_WIDTH/2,height=OPTIONS_INNER_FRAME_HEIGHT/2)
         self.fight_button.config(borderwidth=0)
+        self.fight_button['command'] = self.moves_GUI()
         
         
         # top right button
