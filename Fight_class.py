@@ -38,7 +38,7 @@ def get_multiplier(filename,attacker_type,defender_type):
                     damage_multiplier = row[defender_type]
     except FileNotFoundError:
         print("File not found.")
-    return damage_multiplier
+    return int(damage_multiplier)
 
 def determine_damage(multiplier,attacker_level,move_power,attack_stat,defence_stat):
     ''' (int,int,int,int,int) -> float
