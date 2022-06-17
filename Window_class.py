@@ -108,6 +108,9 @@ class Window:
         self.Pokemon6 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
         self.Pokemon6.place(x=(SWITCH_BUTTONS_FRAME_WIDTH/2),y=5*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
 
+    def go_back(self):
+
+        go_back = Button(self.root, )
 
     def setup(self): # Origin is top left corner
         '''Create all of the widgets for the main game menu.'''
@@ -152,7 +155,7 @@ class Window:
 
 
         # The "What Will You Do" text
-        self.options_ask_start = Label(self.left_options_frame, text=(f"What will\nPLACEHOLDER do?"), bg="#69a1a2",font=self.font) # self.get_pokemon_name_pl
+        self.options_ask_start = Label(self.left_options_frame, text="PLACEHOLDER", bg="#69a1a2",font=self.font)
         self.options_ask_start.place(x=0, y=0, width=OPTIONS_INNER_FRAME_WIDTH, height=OPTIONS_INNER_FRAME_HEIGHT)
 
 
@@ -179,7 +182,10 @@ class Window:
 
         # HP boxes
         self.player_hp_box = Label(self.root, text="HP:", bg="#69a1a2",font=self.font)
-        self.player_hp_box.place(x=MENU_CENTERX*1.1, y=MENU_CENTERY*0.8, width=MENU_CENTERX*0.85, height=BOTTOM_BARY/2)
+        self.player_hp_box.place(x=MENU_CENTERX*1.1, y=MENU_CENTERY*0.9, width=MENU_CENTERX*0.85, height=BOTTOM_BARY/2.5)
+
+        self.opp_hp_box = Label(self.root, text="HP:", bg="#69a1a2", font=self.font)
+        self.opp_hp_box.place(x=MENU_CENTERX*0.1, y=MENU_CENTERY*0.2, width=MENU_CENTERX*0.85, height=BOTTOM_BARY/2.5)
 
 
 

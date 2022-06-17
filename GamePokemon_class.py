@@ -87,6 +87,7 @@ class Main:
         # self.window.move4_button['command'] =
 
         self.window.switch_button['command'] = self.window.switch_GUI
+        self.window.run_button['command'] = self.window.root.destroy
 
 if __name__ == "__main__":
     menu = ""#menu we havent created
