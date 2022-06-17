@@ -66,9 +66,6 @@ class Main:
         self.mouse_hover_change(self.window.run_button, "Run")
 
 
-    def exit_current_GUI(self): # Go back button
-        
-        self.window.root.destroy()
     
 
     def open_moves_gui(self):

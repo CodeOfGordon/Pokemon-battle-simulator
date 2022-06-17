@@ -73,6 +73,7 @@ class Window:
 
         self.move4 = Button(self.moves_frame, text="move4", font=self.font, justify=LEFT)
         self.move4.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
+        self.go_back()
 
     def switch_GUI(self):
         '''Create the GUI for switching the pokemon'''
@@ -107,10 +108,11 @@ class Window:
 
         self.Pokemon6 = Button(self.PokemonButtons, text="PLACEHOLDER", font=self.font, justify="right")
         self.Pokemon6.place(x=(SWITCH_BUTTONS_FRAME_WIDTH/2),y=5*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
+        self.go_back()
 
     def go_back(self):
-
-        go_back = Button(self.root, )
+        
+        go_back = Button(self.root,)
 
     def setup(self): # Origin is top left corner
         '''Create all of the widgets for the main game menu.'''
