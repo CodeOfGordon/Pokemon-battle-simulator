@@ -74,9 +74,6 @@ class Main:
         self.mouse_hover_change(self.window.run_button, "Run")
 
 
-    def exit_current_GUI(self): # Go back button
-        
-        self.window.root.destroy()
     
 
     def setting_up_buttons(self):
@@ -93,6 +90,7 @@ class Main:
         # self.window.move4_button['command'] =
 
         self.window.switch_button['command'] = self.window.switch_GUI
+        self.window.run_button['command'] = self.window.root.destroy
 
 if __name__ == "__main__":
     menu = ""#menu we havent created
