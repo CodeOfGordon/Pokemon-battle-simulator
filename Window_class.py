@@ -195,15 +195,16 @@ class Window:
         self.player_hp_box.place(x=MENU_CENTERX*1.1, y=MENU_CENTERY*0.9, width=MENU_CENTERX*0.85, height=BOTTOM_BARY/2.5)
         self.player_hp_name = Label(self.player_hp_box, text="PLACEHOLDER", font=self.font)
         self.player_hp_name.place(x=(MENU_CENTERX*0.85) *0.05, y=(BOTTOM_BARY/2.5) *0.1)
-        self.progress_bar_pl = Progressbar(self.player_hp_box, length = 100, orient = HORIZONTAL, mode = 'determinate')
-        self.progress_bar_pl.place(x=(MENU_CENTERX*0.85)*0.15,y=(BOTTOM_BARY/2.5)*0.5,width=(MENU_CENTERX*0.85)*0.8)
+        self.total_hpbar_pl = Progressbar(self.player_hp_box, length = 100, orient = HORIZONTAL, mode = 'determinate')
+        self.total_hpbar_pl.place(x=(MENU_CENTERX*0.85)*0.15,y=(BOTTOM_BARY/2.5)*0.5,width=(MENU_CENTERX*0.85)*0.8)
+        
 
         self.opp_hp_box = Frame(self.root, highlightbackground="black", highlightthickness=5)
         self.opp_hp_box.place(x=MENU_CENTERX*0.1, y=MENU_CENTERY*0.2, width=MENU_CENTERX*0.85, height=BOTTOM_BARY/2.5)
         self.opp_hp_name = Label(self.opp_hp_box, text="PLACEHOLDER", font=self.font)
         self.opp_hp_name.place(x=(MENU_CENTERX*0.85) *0.05, y=(BOTTOM_BARY/2.5) *0.1)
-        self.progress_bar_opp = Progressbar(self.opp_hp_box, length = 100, orient = HORIZONTAL, mode = 'determinate')
-        self.progress_bar_opp.place(x=(MENU_CENTERX*0.85)*0.15,y=(BOTTOM_BARY/2.5)*0.5,width=(MENU_CENTERX*0.85)*0.8)
+        self.total_hpbar_pl_opp = Progressbar(self.opp_hp_box, length = 100, orient = HORIZONTAL, mode = 'determinate')
+        self.total_hpbar_pl_opp.place(x=(MENU_CENTERX*0.85)*0.15,y=(BOTTOM_BARY/2.5)*0.5,width=(MENU_CENTERX*0.85)*0.8)
 
 
 

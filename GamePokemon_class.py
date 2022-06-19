@@ -52,7 +52,7 @@ class Main:
         pokemon_player_waist_up = image.height() / 1.5
         self.window.pokemon_player_img.place(x=MENU_CENTERX/4, y=BOTTOM_BARY_TOP-pokemon_player_waist_up)
         
-        
+    
 
 
     def change_pokemon_img_opp(self,folder,pokemon):
