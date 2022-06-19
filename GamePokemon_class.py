@@ -19,19 +19,24 @@ class Main:
         team1,team2 = self.setup_teams()
         self.current_pokemon = team1[0]
         self.current_opp_pokemon = team2[0]
-        self.change_current_pokemon_label(self.current_pokemon)
-        self.change_pokemon_img("pokemon_pngs",self.current_pokemon['name'])
+        self.change_current_pokemon(self.current_pokemon)
+        #self.change_current_pokemon_opp(self.current_opp_pokemon)
     
     def add_moves_to_team(self,team):
         for pokemon in team:
             pokemon['moves'].append(make_moves(pokemon['type'],"moves.csv"))
         return team
 
-    def change_current_pokemon_label(self,pokemon):
+    def change_current_pokemon(self,pokemon):
         self.window.options_ask_start['text'] = f"What will\n{pokemon['name']} do?"
         self.change_move_labels(self.current_pokemon['moves'][0])
 
         self.window.player_hp_name['text'] = f"{pokemon['name']}"
+        self.change_pokemon_img("pokemon_pngs",pokemon['name'])
+    
+    def change_current_pokemon_opp(self,pokemon):
+        self.window.opp_hp_name['text'] = f"{pokemon['name']}"
+        self.change_pokemon_img_opp("pokemon_pngs",self.current_pokemon['name'])
 
     
     def change_pokemon_img(self,folder,pokemon):
@@ -46,6 +51,21 @@ class Main:
         self.window.pokemon_player_img.image = image
         pokemon_player_waist_up = image.height() / 1.5
         self.window.pokemon_player_img.place(x=MENU_CENTERX/4, y=BOTTOM_BARY_TOP-pokemon_player_waist_up)
+        
+        
+
+
+    """def change_pokemon_img_opp(self,folder,pokemon):
+        ''' Detect the pokemon, then adds it with the appropiate image sprite '''
+        filename = f"{pokemon}.png"
+        pokemon_image = os.path.join(folder, filename)
+        image = Image.open(pokemon_image)
+        image = image.resize((300,300), Image.ANTIALIAS)
+        image = ImageTk.PhotoImage(image)
+        self.window.pokemon_opp_img['image'] = image
+        self.window.pokemon_opp_img['bg'] = None
+        self.window.pokemon_opp_img.image = image
+        self.window.pokemon_player_img.place(x=MENU_CENTERX/4, y=MENU_CENTERY*0.1)"""
 
     def change_move_labels(self,moves):
         self.window.move1['text'] = moves[0][0]['name']

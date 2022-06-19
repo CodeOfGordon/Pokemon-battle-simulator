@@ -31,26 +31,26 @@ class Window:
     def get_root(self):
         return self.root
 
-    def get_pokemon_op(self):
-        return self.pokemon_op
+    def get_pokemon_opp(self):
+        return self.pokemon_opp
     
     def get_pokemon_pl(self):
         return self.pokemon_pl
 
     def get_pokemon_name_op(self):
-        return self.pokemon_name_op
+        return self.pokemon_name_opp
 
     def get_pokemon_name_pl(self):
         return self.pokemon_name_pl
 
     def get_pokemon_hp_op(self):
-        return self.pokemon_hp_op
+        return self.pokemon_hp_opp
 
     def get_pokemon_hp_pl(self):
         return self.pokemon_hp_pl
 
     def get_pokemon_remaining_op(self):
-        return self.pokemon_remaining_op
+        return self.pokemon_remaining_opp
 
     def get_pokemon_remaining_pl(self):
         return self.pokemon_remaining_pl
@@ -135,14 +135,14 @@ class Window:
         OPTIONS_INNER_FRAME_HEIGHT = (BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75)
 
         # Pokemon Sprites
-        pokemon_player = Image.open("test_jojo.png")
-        pokemon_player = pokemon_player.resize((20,20), Image.ANTIALIAS)
-        pokemon_player_resize = ImageTk.PhotoImage(pokemon_player)
+        pokemon_placeholder = Image.open("test_jojo.png")
+        pokemon_placeholder = pokemon_placeholder.resize((300,300), Image.ANTIALIAS)
+        pokemon_placeholder_resize = ImageTk.PhotoImage(pokemon_placeholder)
 
-        self.pokemon_player_img = Label(self.root, image=pokemon_player_resize, bg=None)
-        self.pokemon_player_img.image = pokemon_player_resize
-        pokemon_player_waist_up = pokemon_player_resize.height() / 2
-        self.pokemon_player_img.place(x=MENU_CENTERX/4, y=BOTTOM_BARY_TOP-pokemon_player_waist_up)
+        self.pokemon_player_img = Label(self.root, image=pokemon_placeholder_resize, bg=None)
+
+        self.pokemon_opp_img = Label(self.root, image=pokemon_placeholder_resize, bg=None)
+
 
 
 
@@ -200,7 +200,7 @@ class Window:
         self.opp_hp_name.place(x=(MENU_CENTERX*0.85) *0.05, y=(BOTTOM_BARY/2.5) *0.1)
         self.progress_bar_opp = Progressbar(self.opp_hp_box, length = 100, orient = HORIZONTAL, mode = 'determinate')
         self.progress_bar_opp.place(x=(MENU_CENTERX*0.85)*0.15,y=(BOTTOM_BARY/2.5)*0.5,width=(MENU_CENTERX*0.85)*0.8)
-        
+
 
 
 
