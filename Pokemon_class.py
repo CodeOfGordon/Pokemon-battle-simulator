@@ -64,7 +64,7 @@ def make_moves(type,filename):
                 all_type_moves.append(all_moves[move])
         length = len(all_type_moves)-1
         while len(pokemon_moves) < 4:
-            move = all_type_moves[random.randint(1,length)]
+            move = all_type_moves[random.randint(1,length)] #only 1 dragon type move in game ERROR
             if move not in pokemon_moves:
                 pokemon_moves.append([move])
 

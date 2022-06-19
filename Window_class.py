@@ -139,9 +139,13 @@ class Window:
         pokemon_placeholder = pokemon_placeholder.resize((300,300), Image.ANTIALIAS)
         pokemon_placeholder_resize = ImageTk.PhotoImage(pokemon_placeholder)
 
+        pokemon_placeholder_opp = Image.open("Zubat_copy.png")
+        pokemon_placeholder_opp = pokemon_placeholder.resize((300,300), Image.ANTIALIAS)
+        pokemon_placeholder_resize_opp = ImageTk.PhotoImage(pokemon_placeholder_opp)
+
         self.pokemon_player_img = Label(self.root, image=pokemon_placeholder_resize, bg=None)
 
-        self.pokemon_opp_img = Label(self.root, image=pokemon_placeholder_resize, bg=None)
+        self.pokemon_opp_img = Label(self.root, image=pokemon_placeholder_resize_opp, bg=None)
 
 
 
