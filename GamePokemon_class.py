@@ -17,11 +17,10 @@ class Main:
         self.setting_up_mouse_hover()
 
         team1,team2 = self.setup_teams()
-        current_pokemon = team1[0]
-        current_opp_pokemon = team2[0]
-        self.change_current_pokemon_label(current_pokemon)
-        self.change_pokemon_img("pokemon_pngs",current_pokemon['name'])
-        self.change_move_labels(current_pokemon['moves'][0])
+        self.current_pokemon = team1[0]
+        self.current_opp_pokemon = team2[0]
+        self.change_current_pokemon_label(self.current_pokemon)
+        self.change_pokemon_img("pokemon_pngs",self.current_pokemon['name'])
     
     def add_moves_to_team(self,team):
         for pokemon in team:
@@ -30,6 +29,10 @@ class Main:
 
     def change_current_pokemon_label(self,pokemon):
         self.window.options_ask_start['text'] = f"What will\n{pokemon['name']} do?"
+        self.change_move_labels(self.current_pokemon['moves'][0])
+
+        self.window.player_hp_name['text'] = f"{pokemon['name']}"
+
     
     def change_pokemon_img(self,folder,pokemon):
         ''' Detect the pokemon, then adds it with the appropiate image sprite '''
@@ -49,6 +52,7 @@ class Main:
         self.window.move2['text'] = moves[1][0]['name']
         self.window.move3['text'] = moves[2][0]['name']
         self.window.move4['text'] = moves[3][0]['name']
+
 
     def setup_teams(self):
         team_1,team_2 = create_teams("pokemon.csv")
@@ -72,6 +76,7 @@ class Main:
         self.window.bag_button["state"] = DISABLED
         self.mouse_hover_change(self.window.switch_button, "Switch")
         self.mouse_hover_change(self.window.run_button, "Run")
+
 
 
     
