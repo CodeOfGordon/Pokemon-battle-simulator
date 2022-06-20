@@ -27,6 +27,7 @@ class Window:
         self.root.resizable(False,False)
 
         self.setup()
+        self.moves_GUI()
 
     def get_root(self):
         return self.root
@@ -58,24 +59,28 @@ class Window:
 
     def moves_GUI(self):
         '''Create the GUI for the moves.'''
+        self.font = Font(family="Helvetica", size=20, weight="bold")
+
+        self.moves_frame = Frame(self.root, bg="white")
+
+        self.move1 = Button(self.moves_frame, text="move1", font=self.font, justify=LEFT)
+
+        self.move2 = Button(self.moves_frame, text="move2", font=self.font, justify=LEFT)
+
+        self.move3 = Button(self.moves_frame, text="move3", font=self.font, justify=LEFT)
+
+        self.move4 = Button(self.moves_frame, text="move4", font=self.font, justify=LEFT)
+        self.go_back()
+
+    def place_moves_GUI(self):
         OPTIONS_MOVES_FRAME_WIDTH = MENU_WIDTH-(2*SIDE_FRAME)
         OPTIONS_MOVES_FRAME_HEIGHT = (BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75)
 
-        self.moves_frame = Frame(self.root, bg="white")
         self.moves_frame.place(x=SIDE_FRAME, y=BOTTOM_BARY_TOP+TOP_BOTTOM_FRAME, width=OPTIONS_MOVES_FRAME_WIDTH, height=OPTIONS_MOVES_FRAME_HEIGHT)
-
-        self.move1 = Button(self.moves_frame, text="move1", font=self.font, justify=LEFT)
         self.move1.place(x=0,y=0,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
-
-        self.move2 = Button(self.moves_frame, text="move2", font=self.font, justify=LEFT)
         self.move2.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=0,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2) 
-
-        self.move3 = Button(self.moves_frame, text="move3", font=self.font, justify=LEFT)
         self.move3.place(x=0,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
-
-        self.move4 = Button(self.moves_frame, text="move4", font=self.font, justify=LEFT)
         self.move4.place(x=OPTIONS_MOVES_FRAME_WIDTH/2,y=OPTIONS_MOVES_FRAME_HEIGHT/2,width=OPTIONS_MOVES_FRAME_WIDTH/2,height=OPTIONS_MOVES_FRAME_HEIGHT/2)
-        self.go_back()
 
     def switch_GUI(self):
         '''Create the GUI for switching the pokemon'''
@@ -172,8 +177,7 @@ class Window:
         self.fight_button = Button(self.right_options_frame, text="Fight", font=self.font, justify=LEFT)
         self.fight_button.place(x=0,y=0,width=OPTIONS_INNER_FRAME_WIDTH/2,height=OPTIONS_INNER_FRAME_HEIGHT/2)
         self.fight_button.config(borderwidth=0)
-        self.fight_button['command'] = self.moves_GUI()
-        
+
         
         # top right button
         self.bag_button = Button(self.right_options_frame, text="Bag", font=self.font, justify=LEFT)

@@ -59,13 +59,15 @@ def make_moves(type,filename):
     try:
         all_moves = create_all_moves(filename)
         all_type_moves = []
+        if type == "Dragon": #temp fix
+            type == "Normal"
         for move in all_moves:
             if all_moves[move]['type'] == type:
                 all_type_moves.append(all_moves[move])
         length = len(all_type_moves)-1
         while len(pokemon_moves) < 4:
-            move = all_type_moves[random.randint(1,length)] #only 1 dragon type move in game ERROR
-            if move not in pokemon_moves:
+            move = all_type_moves[random.randint(1,5)] #only 1 dragon type move in game ERROR
+            if move not in pokemon_moves: #need to do something like for i in pokemon_moves, if i == move: dont add
                 pokemon_moves.append([move])
 
     except FileNotFoundError:

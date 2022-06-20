@@ -107,7 +107,7 @@ class Main:
         self.window.switch_button['command'] = self.test
         self.window.run_button['command'] = self.test
 
-        self.window.fight_button['command'] = self.window.moves_GUI
+        self.window.fight_button['command'] = self.window.place_moves_GUI
 
         # self.window.move1_button['command'] =
         # self.window.move2_button['command'] =
