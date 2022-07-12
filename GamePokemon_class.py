@@ -28,6 +28,7 @@ class Main:
         print(self.current_opp_pokemon)
         self.change_current_pokemon(self.current_pokemon)
         self.change_current_pokemon_opp(self.current_opp_pokemon)
+        self.change_switch_pokemon_labels(team1)
     
     def add_moves_to_team(self,team):
         for pokemon in team:
@@ -79,6 +80,13 @@ class Main:
         self.window.move3['text'] = moves[2][0]['name']
         self.window.move4['text'] = moves[3][0]['name']
 
+    def change_switch_pokemon_labels(self,team):
+        self.window.Pokemon1['text'] = team[0]['name']
+        self.window.Pokemon2['text'] = team[1]['name']
+        self.window.Pokemon3['text'] = team[2]['name']
+        self.window.Pokemon4['text'] = team[3]['name']
+        self.window.Pokemon5['text'] = ""
+        self.window.Pokemon6['text'] = ""
 
     def setup_teams(self):
         team_1,team_2 = create_teams("pokemon.csv")
@@ -122,13 +130,14 @@ class Main:
         self.window.run_button['command'] = self.test
 
         self.window.fight_button['command'] = self.window.place_moves_GUI
+        self.window.switch_button['command'] = self.window.place_switch_gui
+
 
         # self.window.move1_button['command'] =
         # self.window.move2_button['command'] =
         # self.window.move3_button['command'] =
         # self.window.move4_button['command'] =
 
-        self.window.switch_button['command'] = self.window.switch_GUI
         self.window.run_button['command'] = self.window.root.destroy
 
 
