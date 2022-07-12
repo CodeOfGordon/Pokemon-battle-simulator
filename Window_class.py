@@ -201,6 +201,7 @@ class Window:
         self.player_hp_name.place(x=(MENU_CENTERX*0.85) *0.05, y=(BOTTOM_BARY/2.5) *0.1)
         self.total_hpbar_pl = Progressbar(self.player_hp_box, length = 100, orient = HORIZONTAL, mode = 'determinate')
         self.total_hpbar_pl.place(x=(MENU_CENTERX*0.85)*0.15,y=(BOTTOM_BARY/2.5)*0.5,width=(MENU_CENTERX*0.85)*0.8)
+        self.total_hpbar_pl['value'] = 100
         
 
         self.opp_hp_box = Frame(self.root, highlightbackground="black", highlightthickness=5)
@@ -209,7 +210,7 @@ class Window:
         self.opp_hp_name.place(x=(MENU_CENTERX*0.85) *0.05, y=(BOTTOM_BARY/2.5) *0.1)
         self.total_hpbar_pl_opp = Progressbar(self.opp_hp_box, length = 100, orient = HORIZONTAL, mode = 'determinate')
         self.total_hpbar_pl_opp.place(x=(MENU_CENTERX*0.85)*0.15,y=(BOTTOM_BARY/2.5)*0.5,width=(MENU_CENTERX*0.85)*0.8)
-
+        self.total_hpbar_pl_opp['value'] = 100
 
 
 

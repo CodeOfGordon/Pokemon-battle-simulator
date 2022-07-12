@@ -15,10 +15,15 @@ class Main:
         self.window = Window()
         self.setting_up_buttons()
         self.setting_up_mouse_hover()
+        self.pokemon_level = 50
 
         team1,team2 = self.setup_teams()
         self.current_pokemon = team1[0]
         self.current_opp_pokemon = team2[0]
+        print(self.current_pokemon)
+        print(self.current_pokemon['moves'][0][0])
+        #print(self.update_health(self.current_pokemon, self.current_opp_pokemon, self.pokemon_level, self.current_pokemon['moves'][0][1]))
+        print(self.current_opp_pokemon)
         self.change_current_pokemon(self.current_pokemon)
         self.change_current_pokemon_opp(self.current_opp_pokemon)
     
@@ -52,7 +57,6 @@ class Main:
         pokemon_player_waist_up = image.height() / 1.5
         self.window.pokemon_player_img.place(x=MENU_CENTERX/4, y=BOTTOM_BARY_TOP-pokemon_player_waist_up)
         
-    
 
 
     def change_pokemon_img_opp(self,folder,pokemon):
@@ -80,10 +84,18 @@ class Main:
         team_2 = self.add_moves_to_team(team_2)
         return team_1,team_2
 
+    def update_health(self, attacker, defender, attacker_level, chosen_move):
+        multiplier = get_multiplier('multipler.csv',attacker['Type'],defender['Type'])
+        new_damage = determine_damage(multiplier, attacker_level, attacker['moves'][0][chosen_move]['Power'], attacker['Attack'], attacker['Defense'])
+        return new_damage
+        
+
+
     def test(self):
         COLORS = ["red", "green", "blue", "yellow"]
         example = Label(self.window.root, text="test", background=random.choice(COLORS))
         example.place(x=0, y=0, width=50, height=50)
+
 
     def mouse_hover_change(self, button, oldtext):
         '''Change the text of the button when the mouse is over it.'''
@@ -116,6 +128,7 @@ class Main:
 
         self.window.switch_button['command'] = self.window.switch_GUI
         self.window.run_button['command'] = self.window.root.destroy
+
 
 if __name__ == "__main__":
     menu = ""#menu we havent created
