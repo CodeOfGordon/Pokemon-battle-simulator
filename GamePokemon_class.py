@@ -21,8 +21,10 @@ class Main:
         self.current_pokemon = team1[0]
         self.current_opp_pokemon = team2[0]
         print(self.current_pokemon)
+        print(self.current_pokemon['moves'][0])
         print(self.current_pokemon['moves'][0][0])
-        #print(self.update_health(self.current_pokemon, self.current_opp_pokemon, self.pokemon_level, self.current_pokemon['moves'][0][1]))
+        print(self.current_pokemon['moves'][0][0][0])
+        print(self.update_health(self.current_pokemon, self.current_opp_pokemon, self.pokemon_level, self.current_pokemon['moves'][0][1][0]))
         print(self.current_opp_pokemon)
         self.change_current_pokemon(self.current_pokemon)
         self.change_current_pokemon_opp(self.current_opp_pokemon)
@@ -85,8 +87,8 @@ class Main:
         return team_1,team_2
 
     def update_health(self, attacker, defender, attacker_level, chosen_move):
-        multiplier = get_multiplier('multipler.csv',attacker['Type'],defender['Type'])
-        new_damage = determine_damage(multiplier, attacker_level, attacker['moves'][0][chosen_move]['Power'], attacker['Attack'], attacker['Defense'])
+        multiplier = get_multiplier('multipler.csv',attacker['type'],defender['type'])
+        new_damage = determine_damage(multiplier, attacker_level, attacker['moves'][0][0], attacker['attack'], attacker['defence'])
         return new_damage
         
 

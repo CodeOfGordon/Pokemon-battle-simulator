@@ -28,8 +28,8 @@ def get_multiplier(filename,attacker_type,defender_type):
     1
     '''
     damage_multiplier = 0
-    attacker_type = attacker_type.capitalize()
-    defender_type = defender_type.capitalize()
+    attacker_type = attacker_type.lower()
+    defender_type = defender_type.lower()
     try:
         with open(filename) as f:
             reader = csv.DictReader(f)
