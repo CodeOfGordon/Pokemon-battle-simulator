@@ -46,7 +46,11 @@ def determine_damage(multiplier,attacker_level,move_power,attack_stat,defence_st
     >>> determine_damage(1,50,30,25,25)
     idk
     '''
+    attack_stat = float(attack_stat)
+    defence_stat = float(defence_stat)
+    move_power = float(move_power)
+
     first_bracket = ((2*attacker_level)/5)+2
     second_bracket = ((attack_stat/defence_stat)/50)+2
     damage = ((first_bracket*move_power*second_bracket)*multiplier)*5
-    return damage
+    return round(damage)

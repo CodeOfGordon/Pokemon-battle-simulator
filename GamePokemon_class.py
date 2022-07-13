@@ -101,8 +101,8 @@ class Main:
 
     #def update_health(self, attacker, defender, attacker_level, chosen_move):
         multiplier = get_multiplier('multipler.csv',attacker['type'],defender['type'])
-        new_damage = determine_damage(multiplier, attacker_level, attacker['moves'][0][0], attacker['attack'], attacker['defence'])
-        return new_damage
+        self.new_damage = determine_damage(multiplier, attacker_level, attacker['moves'][0][chosen_move][0]['damage'], attacker['attack'], attacker['defence'])
+        return self.new_damage
         
 
 
