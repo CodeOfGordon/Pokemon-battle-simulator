@@ -28,8 +28,8 @@ def get_multiplier(filename,attacker_type,defender_type):
     1
     '''
     damage_multiplier = 0
-    attacker_type = attacker_type.lower()
-    defender_type = defender_type.lower()
+    attacker_type = attacker_type.capitalize()
+    defender_type = defender_type.capitalize()
     try:
         with open(filename) as f:
             reader = csv.DictReader(f)
@@ -40,15 +40,20 @@ def get_multiplier(filename,attacker_type,defender_type):
         print("File not found.")
     return int(damage_multiplier)
 
+print(get_multiplier("multiplier.csv",10,15))
+
+
 def determine_damage(multiplier,attacker_level,move_power,attack_stat,defence_stat):
     ''' (int,int,int,int,int) -> float
     Determines and returns the damage done by an attacker
     >>> determine_damage(1,50,30,25,25)
     idk
     '''
+
     attack_stat = float(attack_stat)
     defence_stat = float(defence_stat)
     move_power = float(move_power)
+
 
     first_bracket = ((2*attacker_level)/5)+2
     second_bracket = ((attack_stat/defence_stat)/50)+2
