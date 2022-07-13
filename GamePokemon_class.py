@@ -13,19 +13,21 @@ class Main:
 
     def __init__(self):
         self.window = Window()
-        self.setting_up_buttons()
         self.setting_up_mouse_hover()
         self.pokemon_level = 50
 
         team1,team2 = self.setup_teams()
         self.current_pokemon = team1[0]
         self.current_opp_pokemon = team2[0]
-        print(self.current_pokemon)
+        self.setting_up_buttons()
+        '''print(self.current_pokemon)
         print(self.current_pokemon['moves'][0])
         print(self.current_pokemon['moves'][0][0])
         print(self.current_pokemon['moves'][0][0][0])
         print(self.update_health(self.current_pokemon, self.current_opp_pokemon, self.pokemon_level, self.current_pokemon['moves'][0][1][0]))
-        print(self.current_opp_pokemon)
+        print(self.current_opp_pokemon)'''
+
+        self.change_explination_text(self.current_pokemon)
         self.change_current_pokemon(self.current_pokemon)
         self.change_current_pokemon_opp(self.current_opp_pokemon)
         self.change_switch_pokemon_labels(team1)
@@ -88,13 +90,16 @@ class Main:
         self.window.Pokemon5['text'] = ""
         self.window.Pokemon6['text'] = ""
 
+    def change_explination_text(self,current_pokemon):
+        self.window.moves_summary_text['text'] = f"{current_pokemon['name']} used {current_pokemon['moves'][0][0][0]['name']}!"
+
     def setup_teams(self):
         team_1,team_2 = create_teams("pokemon.csv")
         team_1 = self.add_moves_to_team(team_1)
         team_2 = self.add_moves_to_team(team_2)
         return team_1,team_2
 
-    def update_health(self, attacker, defender, attacker_level, chosen_move):
+    #def update_health(self, attacker, defender, attacker_level, chosen_move):
         multiplier = get_multiplier('multipler.csv',attacker['type'],defender['type'])
         new_damage = determine_damage(multiplier, attacker_level, attacker['moves'][0][0], attacker['attack'], attacker['defence'])
         return new_damage
@@ -124,19 +129,14 @@ class Main:
     
 
     def setting_up_buttons(self):
-        self.window.fight_button['command'] = self.test
-        self.window.bag_button['command'] = self.test
-        self.window.switch_button['command'] = self.test
-        self.window.run_button['command'] = self.test
 
         self.window.fight_button['command'] = self.window.place_moves_GUI
         self.window.switch_button['command'] = self.window.place_switch_gui
 
-
-        # self.window.move1_button['command'] =
-        # self.window.move2_button['command'] =
-        # self.window.move3_button['command'] =
-        # self.window.move4_button['command'] =
+        self.window.move1['command'] = self.window.place_move_summary_GUI
+        self.window.move2['command'] = self.window.place_move_summary_GUI
+        self.window.move3['command'] = self.window.place_move_summary_GUI
+        self.window.move4['command'] = self.window.place_move_summary_GUI
 
         self.window.run_button['command'] = self.window.root.destroy
 

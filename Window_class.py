@@ -22,6 +22,9 @@ class Window:
 
     def __init__(self):
         self.root = Tk()
+        self.canvas = Canvas(self.root)
+        self.canvas.pack()
+
         self.root.geometry(f"{MENU_WIDTH}x{MENU_HEIGHT}")
         self.root.title("The Randomized Shiny Pokemon Showdown!")
         self.root.resizable(False,False)
@@ -29,6 +32,7 @@ class Window:
         self.setup()
         self.moves_GUI()
         self.switch_GUI()
+        self.move_summary_GUI()
 
     def get_root(self):
         return self.root
@@ -122,6 +126,34 @@ class Window:
         self.Pokemon4.place(x=(SWITCH_BUTTONS_FRAME_WIDTH/2),y=3*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
         self.Pokemon5.place(x=0,y=4*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
         self.Pokemon6.place(x=(SWITCH_BUTTONS_FRAME_WIDTH/2),y=5*(SWITCH_BUTTONS_FRAME_HEIGHT/(4+3)),width=SWITCH_BUTTONS_FRAME_WIDTH/2,height=SWITCH_BUTTONS_FRAME_HEIGHT/4)
+
+    def move_summary_GUI(self):
+        self.font = Font(family="Helvetica", size=20, weight="bold")
+
+        self.moves_summary_frame = Frame(self.root, bg="white")
+
+        self.explination_text = "PLACEHOLDER used PLACEHOLDER!\n\nIt was PLACEHOLDER!"
+
+        '''canvas_text = self.canvas.create_text(10,10,text='',anchor=NW)
+        delta = 50000
+        delay = 50000
+        for i in range(len(explination_text) + 1): #this was an attempt to make the text animated, failed.
+            s = explination_text[:i]
+            update_text = lambda s=s: self.canvas.itemconfigure(canvas_text, text=s)
+            self.canvas.after(delay, update_text)
+            delay += delta'''
+
+        self.moves_summary_text = Label(self.moves_summary_frame, text=self.explination_text, font=self.font, justify="left")
+
+        self.go_back()
+
+    def place_move_summary_GUI(self):
+        OPTIONS_MOVES_FRAME_WIDTH = MENU_WIDTH-(2*SIDE_FRAME)
+        OPTIONS_MOVES_FRAME_HEIGHT = (BOTTOM_BARY)-(2*TOP_BOTTOM_FRAME*0.75)
+
+        self.moves_summary_frame.place(x=SIDE_FRAME, y=BOTTOM_BARY_TOP+TOP_BOTTOM_FRAME, width=OPTIONS_MOVES_FRAME_WIDTH, height=OPTIONS_MOVES_FRAME_HEIGHT)
+
+        self.moves_summary_text.place(x=0,y=0,width=OPTIONS_MOVES_FRAME_WIDTH,height=OPTIONS_MOVES_FRAME_HEIGHT)
 
     def go_back(self):
         #d64739
