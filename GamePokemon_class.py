@@ -99,11 +99,11 @@ class Main:
         team_2 = self.add_moves_to_team(team_2)
         return team_1,team_2
 
-    #def update_health(self, attacker, defender, attacker_level, chosen_move):
-        multiplier = get_multiplier('multipler.csv',attacker['type'],defender['type'])
-        print(attacker['type'])
-        self.new_damage = determine_damage(multiplier, attacker_level, attacker['moves'][0][chosen_move][0]['damage'], attacker['attack'], attacker['defence'])
-        return self.new_damage
+    def update_health(self, attacker, defender, attacker_level, chosen_move):
+            multiplier = get_multiplier('multipler.csv',attacker['type'],defender['type'])
+            print(attacker['type'])
+            self.new_damage = determine_damage(multiplier, attacker_level, attacker['moves'][0][chosen_move][0]['damage'], attacker['attack'], attacker['defence'])
+            return self.new_damage
         
 
 

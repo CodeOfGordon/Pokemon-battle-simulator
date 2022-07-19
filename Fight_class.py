@@ -38,9 +38,9 @@ def get_multiplier(filename,attacker_type,defender_type):
                     damage_multiplier = row[defender_type]
     except FileNotFoundError:
         print("File not found.")
-    return int(damage_multiplier)
+    return damage_multiplier
 
-print(get_multiplier("multiplier.csv",10,15))
+
 
 
 def determine_damage(multiplier,attacker_level,move_power,attack_stat,defence_stat):
@@ -59,3 +59,5 @@ def determine_damage(multiplier,attacker_level,move_power,attack_stat,defence_st
     second_bracket = ((attack_stat/defence_stat)/50)+2
     damage = ((first_bracket*move_power*second_bracket)*multiplier)*5
     return round(damage)
+
+print(determine_damage(1,1,30,25,25))
