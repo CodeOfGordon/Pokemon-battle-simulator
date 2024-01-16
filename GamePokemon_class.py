@@ -107,11 +107,6 @@ class Main:
         
 
 
-    def test(self):
-        COLORS = ["red", "green", "blue", "yellow"]
-        example = Label(self.window.root, text="test", background=random.choice(COLORS))
-        example.place(x=0, y=0, width=50, height=50)
-
 
     def mouse_hover_change(self, button, oldtext):
         '''Change the text of the button when the mouse is over it.'''
